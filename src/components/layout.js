@@ -5,9 +5,7 @@ import styled from 'styled-components';
 const Container = styled.div
     `
   margin: auto;
-  max-width: 500px;
   font-family: sans-serif;
-
 `;
 
 const Heading = styled.div
@@ -36,7 +34,8 @@ color: black;
 
 const Layout = ({ pageTitle, children }) => {
     return (
-        <Container>
+        <>
+       <Container>
             <nav>
                 <NavLinks>
                     <NavLinkItem>
@@ -46,6 +45,10 @@ const Layout = ({ pageTitle, children }) => {
                     <NavLinkItem>
                         <NavLinkText><Link to="/about">About</Link></NavLinkText>
                     </NavLinkItem>
+
+                    <NavLinkItem>
+                        <NavLinkText><Link to="/mySpotify">My Spotify</Link></NavLinkText>
+                    </NavLinkItem>
                 </NavLinks>
             </nav>
             <main>
@@ -53,6 +56,7 @@ const Layout = ({ pageTitle, children }) => {
                 {children}
             </main>
         </Container>
+        </>
     )
 }
 
