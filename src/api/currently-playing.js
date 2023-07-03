@@ -2,11 +2,13 @@ import { getNowPlaying } from "../../lib/spotify";
 export default async function GetNowPlaying(req,res) {
     const response = await getNowPlaying();
 
-    //not listening to spotify, offline
-    if(response.status === 204)
+    //not listening to spotify, offline or error 
+    if(response.status !== 204 || response.status === 401)
     {
         return null;
     }
+
+ 
     const song = await response.json();
    
     const result = {
