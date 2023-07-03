@@ -80,7 +80,7 @@ const SongCardDisplay = ({ name, artist, image, url }) => {
                 html5: true,
             })
 
-            audio.volume(0.05);
+            audio.volume(0.3);
             audio.play();
         }
     }
