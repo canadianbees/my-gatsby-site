@@ -5,11 +5,12 @@ import Layout from '../components/layout'
 import GetMyTopTracks from '../api/top-tracks'
 import GetMyTopArtists from '../api/top-artists'
 import GetMySavedAlbums from '../api/saved-albums';
-import GetNowPlaying from '../api/currently-playing';
 import SongCardDisplay from '../components/topTracksDisplay'
 import ArtistCardDisplay from '../components/topArtistsDisplay';
 import AlbumCardDisplay from '../components/savedAlbumsDisplay';
 import NowPlayingDisplay from '../components/nowPlayingDisplay';
+import { MusicNoteBeamed } from '@styled-icons/bootstrap';
+import { keyframes } from 'styled-components';
 
 const Container = styled.div
     `
@@ -21,7 +22,28 @@ const Container = styled.div
 
 `;
 
+const loadAnimation = keyframes
+    `
+    0% {color: #191414;}
+    50% {color: #1DB954;}
+    100% {color: #191414;}
 
+`;
+
+const Loading = styled(MusicNoteBeamed)
+    `
+ animation: 1.25s ease-in-out ${loadAnimation} infinite;
+
+ height:100px;
+ width:100px;
+ text-shadow: 0 0 8px #FF0000;
+ bottom:-200px;
+ top:400px;
+ right:400px;
+ left:952px;
+ position:fixed;
+
+`;
 const TopSongs = styled.div
     `
     
@@ -38,7 +60,7 @@ const SavedAlbums = styled.div
 `;
 
 const Greeting = styled.p
-`
+    `
     text-align: center;
 `;
 
@@ -46,36 +68,36 @@ const MySpotifyPage = () => {
     const [tracks, setTracks] = useState();
     const [artists, setArtists] = useState();
     const [albums, setAlbums] = useState();
-    const [nowPlaying, setNowPlaying] = useState();
+    const [loaded, setLoading] = useState(false);
 
     async function fetchData() {
         let trackResult = await GetMyTopTracks();
         let artistResult = await GetMyTopArtists();
         let albumResult = await GetMySavedAlbums();
-        let playingResult = await GetNowPlaying();
-//
+        //
         setTracks(trackResult);
         setArtists(artistResult);
         setAlbums(albumResult);
-        setNowPlaying(playingResult);
 
+        setLoading(true);
     }
-//
+    //
     useEffect(() => {
         fetchData();
+
     }, []); //! Important
 
 
-    if (tracks) {
+    if (loaded) {
         return (
             <Layout pageTitle="My Spotify">
                 <Greeting>Here you can see what I listen to! Updates every month.</Greeting>
-               
-                        <NowPlayingDisplay>
-                        </NowPlayingDisplay>
-                  
+
+                <NowPlayingDisplay>
+                </NowPlayingDisplay>
+
                 <Container>
-                    
+
                     <TopSongs>
                         <p>MY TOP SONGS!</p>
 
@@ -123,14 +145,15 @@ const MySpotifyPage = () => {
 
                         }
                     </SavedAlbums>
-                   
+
                 </Container>
             </Layout>
         )
     }
 
     else {
-        <p>SONGS DIDNT LOAD</p>
+        return (<Loading />)
+
     }
 
 
