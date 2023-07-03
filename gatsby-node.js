@@ -8,10 +8,6 @@ exports.onCreateWebpackConfig = ({ actions }) => {
           stream: require.resolve("stream-browserify"),
         },
       },
-      plugins: [
-        new webpack.ProvidePlugin({
-               process: 'process/browser',
-        }),
-      ],
+      
     })
   }
