@@ -11,4 +11,7 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: ["gatsby-plugin-styled-components"],
+  flags: {
+    DEV_SSR: true,
+  },
 };
