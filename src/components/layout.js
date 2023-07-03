@@ -3,22 +3,24 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const Container = styled.div
-    `
-  margin: auto;
+`
   font-family: sans-serif;
 `;
 
 const Heading = styled.div
-    `
-color: rebeccapurple;
-font-size: 6rem;
+`
+    color: rebeccapurple;
+    font-size: 3rem;
+    text-align: center;
 `;
 
+
+//TODO: make nav links centered
 const NavLinks = styled.ul
-    `
-display: flex;
-  list-style: none;
-  padding-left: 0;
+`
+    display: flex;
+    list-style: none;
+   
 
 `;
 
@@ -35,27 +37,27 @@ color: black;
 const Layout = ({ pageTitle, children }) => {
     return (
         <>
-       <Container>
-            <nav>
-                <NavLinks>
-                    <NavLinkItem>
-                        <NavLinkText><Link to="/">Home</Link></NavLinkText>
-                    </NavLinkItem>
+            <Container>
+                <nav>
+                    <NavLinks>
+                        <NavLinkItem>
+                            <NavLinkText><Link to="/">Home</Link></NavLinkText>
+                        </NavLinkItem>
 
-                    <NavLinkItem>
-                        <NavLinkText><Link to="/about">About</Link></NavLinkText>
-                    </NavLinkItem>
+                        <NavLinkItem>
+                            <NavLinkText><Link to="/about">About</Link></NavLinkText>
+                        </NavLinkItem>
 
-                    <NavLinkItem>
-                        <NavLinkText><Link to="/mySpotify">My Spotify</Link></NavLinkText>
-                    </NavLinkItem>
-                </NavLinks>
-            </nav>
-            <main>
-                <Heading>{pageTitle}</Heading>
-                {children}
-            </main>
-        </Container>
+                        <NavLinkItem>
+                            <NavLinkText><Link to="/mySpotify">My Spotify</Link></NavLinkText>
+                        </NavLinkItem>
+                    </NavLinks>
+                </nav>
+                <main>
+                    <Heading>{pageTitle}</Heading>
+                    {children}
+                </main>
+            </Container>
         </>
     )
 }

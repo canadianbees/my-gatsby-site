@@ -20,9 +20,8 @@ const SongCard = styled.div
         background-color: pink;
         cursor: pointer;
 
-        
-    }
 
+    }
 `;
 
 
@@ -64,7 +63,6 @@ const SongNameInfo = styled.div
 var audio = null;
 
 const SongCardDisplay = ({ name, artist, image, url }) => {
-
     const soundPlay = () => {
 
         //check if its already playing, if it is then stop
@@ -85,25 +83,19 @@ const SongCardDisplay = ({ name, artist, image, url }) => {
             audio.volume(0.05);
             audio.play();
         }
-
-
     }
 
     return (
         <SongCard onClick={soundPlay}>
-
             <Song>
                 <div>
                     <SongImg src={image} alt="" />
                     <SongNameInfo>
                         <span>{name}</span>
-
                         <span>{artist}</span>
                     </SongNameInfo>
-
                 </div>
             </Song>
-
         </SongCard>
     )
 }
