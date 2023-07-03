@@ -90,7 +90,7 @@ const NowPlayingDisplay = () => {
         console.log(nowPlaying);
     }
 
-    useEffect(async() => {
+    useEffect(() => {
         fetchData();
     }, []); //! Important
 
