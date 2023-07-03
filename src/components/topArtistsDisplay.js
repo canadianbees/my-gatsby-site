@@ -14,18 +14,8 @@ const ArtistCard = styled.div
 
     &:hover
     {
-        border-radius: 0rem;
-        background-color: #CDBEE0;
-        cursor: pointer;
-    }
-
-    h3
-    {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: var(--purple);
-
+        border-radius: 1rem;
+        background-color: pink;
     }
 `;
 
@@ -48,7 +38,8 @@ const ArtistImg = styled.img
 width: 75px;
 height: 75px;
 right:5px;
-position: relative;
+position: center;
+border-radius: .5rem;
 `;
 
 const ArtistInfo = styled.div
@@ -60,9 +51,13 @@ const ArtistInfo = styled.div
 
     span:nth-of-type(1){
         font-weight: bold;
-        font-size:20px;
+        font-size:17px;
     }
     
+    a:hover
+    {
+        color: red;
+    }
 `;
 
 
