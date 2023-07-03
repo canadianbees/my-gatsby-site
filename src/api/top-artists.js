@@ -1,17 +1,23 @@
-import { getTopArtists }  from "../../lib/spotify";
+import { getTopArtists } from "../../lib/spotify";
 
 
 
-export default async function GetMyTopArtists(req,res) {
+export default async function GetMyTopArtists(req, res) {
     const response = await getTopArtists();
     const { items } = await response.json();
 
-    const result = items.slice(0, 10).map((artists) => ({
-        name: artists.name,
-        artistUrl: artists.uri,
-        img: artists.images[0].url,
-    }));
+
+    if (items) {
+        const result = items.slice(0, 10).map((artists) => ({
+            name: artists.name,
+            artistUrl: artists.uri,
+            img: artists.images[0].url,
+        }));
 
 
-    return result;
+        return result;
+
+    };
+    return null;
+
 }
