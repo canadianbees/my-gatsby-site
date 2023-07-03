@@ -1,18 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const PlayingAnimation = () => {
-    return(
-        <Playing>
-            <span />
-            <span />
-            <span />
-        </Playing>
-    )
-};
-
-export default PlayingAnimation;
-
 const Animation = keyframes`
     10% {
     transform: scaleY(0.3);
@@ -39,13 +27,14 @@ const Playing = styled.div`
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
+    transform:translatex(7px) translatey(5px);
   
     span {
-        width: 30px;
+        width: 25px;
         height: 100%;
-        background-color: #1ED760;
+        background-color: #1DB954;
         box-shadow:8px 0px 9px -3px #229924;
         border-radius: 4px;
         animation: ${Animation} 4.2s ease infinite alternate;
@@ -62,3 +51,20 @@ const Playing = styled.div`
         
     }
 `;
+
+
+
+
+
+const PlayingAnimation = () => {
+    return(
+        <Playing>
+            <span />
+            <span />
+            <span />
+        </Playing>
+    )
+};
+
+export default PlayingAnimation;
+
