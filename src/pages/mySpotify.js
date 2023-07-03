@@ -2,10 +2,10 @@ import * as React from 'react'
 import { useEffect, useState } from "react"
 import styled from 'styled-components';
 import Layout from '../components/layout'
-import GetMyTopTracks from './api/top-tracks'
-import GetMyTopArtists from './api/top-artists'
-import GetMySavedAlbums from './api/saved-albums';
-import GetNowPlaying from './api/currently-playing';
+import GetMyTopTracks from '../api/top-tracks'
+import GetMyTopArtists from '../api/top-artists'
+import GetMySavedAlbums from '../api/saved-albums';
+import GetNowPlaying from '../api/currently-playing';
 import SongCardDisplay from '../components/topTracksDisplay'
 import ArtistCardDisplay from '../components/topArtistsDisplay';
 import AlbumCardDisplay from '../components/savedAlbumsDisplay';

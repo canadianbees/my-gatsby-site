@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import GetNowPlaying from '../pages/api/currently-playing';
+import GetNowPlaying from '../api/currently-playing';
 import PlayingAnimation from './PlayingAnimation';
 import { Spotify } from '@styled-icons/fa-brands';
 
@@ -25,7 +25,7 @@ const SpotifyLogo = styled(Spotify)
     width: 50px;
     height: 50px;
     transform:translatex(407px) translatey(-148px);
-    
+
     &:hover
     {
         color: #1ed760;
@@ -90,7 +90,7 @@ const NowPlayingDisplay = () => {
         console.log(nowPlaying);
     }
 
-    useEffect(() => {
+    useEffect(async() => {
         fetchData();
     }, []); //! Important
 
@@ -115,7 +115,7 @@ const NowPlayingDisplay = () => {
                                     <Listening>Now Playing</Listening>
                                     <Animation>{nowPlaying.isPlaying && <PlayingAnimation />} </Animation>
                                     <PlayingInfo>{nowPlaying.name}<br></br>{nowPlaying.artist}</PlayingInfo>
-                                    <a href={nowPlaying.trackUrl}><SpotifyLogo></SpotifyLogo></a>
+                                    {/* <a href={nowPlaying.trackUrl}><SpotifyLogo></SpotifyLogo></a> */}
 
                                 </PlayingCard>
 
