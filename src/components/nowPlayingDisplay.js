@@ -49,6 +49,22 @@ const SpotifyLogo = styled(Spotify)
     &:hover{
         color: #1DB954;
     }
+
+
+    @media (max-width:1054px){
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:space-around;
+      
+      }
+
+      @media (max-width:615px){
+
+       top:12px;
+      
+      }
 `;
 
 const Listening = styled.span
@@ -110,14 +126,15 @@ const PlayingInfo = styled.span
     display:block;
     font-weight:600;
     position:relative;
-    top:8px;
+ 
 
-    @media (max-width:1054px){
+    @media (max-width:615px){
 
-        top:-50px;
-        left:-4px;
-      
-      }
+    
+        font-size:16px;
+        top:8px;
+       }
+
 `;
 
 const loadAnimation = keyframes
@@ -146,17 +163,23 @@ padding-right:32px;
 min-height:53px;
 width:410px;
 position:relative;
-top:-54px;
 left:22px;
-
+top:-45px;
 @media (max-width:1054px){
 
     position:relative;
   text-align:center;
-  left:140px;
-  top:57px;
-  
+
+  top:8px;
   }
+
+
+  @media (max-width:615px){
+
+    top:0px;
+     width:229px;
+    }
+    
 
 `;
 
@@ -180,7 +203,7 @@ const NowPlayingDisplay = ({ name, artist, image, trackUrl, isPlaying, loaded, o
                     {isPlaying ?
 
 
-
+                        <>
                         <PlayingCard>
                             <PlayingImg src={image} alt="" />
                             <Listening>Now Playing</Listening>
@@ -192,7 +215,7 @@ const NowPlayingDisplay = ({ name, artist, image, trackUrl, isPlaying, loaded, o
                         </PlayingCard>
 
 
-
+                        </>
 
                         : <Offline>Not playing anything at the moment<br></br><br></br></Offline>}
 
