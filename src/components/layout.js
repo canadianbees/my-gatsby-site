@@ -99,12 +99,12 @@ const Layout = ({ pageTitle, children}) => {
     async function fetchData() {
 
         if (pageTitle === 'Home Page') {
-            consoleText(['Welcome!', 'Go ahead and look around.', 'Made with React.'], 'text', ['#FFB2C0', '#ADE7FF', '#FFD15C']);
+            consoleText(['welcome!', 'go ahead and look around.', 'made with React.'], 'text', ['#FFB2C0', '#ADE7FF', '#FFD15C']);
         }
 
         if (pageTitle === 'My Spotify') {
 
-            consoleText(['My Spotify', 'Click on a top track!', 'Updates every 4 weeks.'], 'text', ['#FFD15C', '#ADE7FF', '#FFB2C0']);
+            consoleText(['my Spotify', 'click on a top track!', 'updates every 4 weeks.'], 'text', ['#FFD15C', '#ADE7FF', '#FFB2C0']);
         }
 
 
