@@ -10,7 +10,7 @@ module.exports = {
     title: `My Gatsby Site`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-styled-components"],
+  plugins: ["gatsby-plugin-styled-components", `gatsby-plugin-sass`],
   flags: {
     DEV_SSR: true,
   },
