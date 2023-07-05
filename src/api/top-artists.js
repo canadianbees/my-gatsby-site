@@ -12,8 +12,8 @@ export default async function GetMyTopArtists(req, res) {
             name: artists.name,
             artistUrl: artists.uri,
             img: artists.images[0].url,
+            genre: artists.genres.map((genre) => (genre)).join(', '),
         }));
-
 
         return result;
 
