@@ -5,6 +5,7 @@ import Layout from '../components/layout'
 import GetMyTopTracks from '../api/top-tracks'
 import GetMyTopArtists from '../api/top-artists'
 import GetMySavedAlbums from '../api/saved-albums';
+import GetNowPlaying from '../api/currently-playing';
 import SongCardDisplay from '../components/topTracksDisplay'
 import ArtistCardDisplay from '../components/topArtistsDisplay';
 import AlbumCardDisplay from '../components/savedAlbumsDisplay';
@@ -15,11 +16,15 @@ import { keyframes } from 'styled-components';
 const Container = styled.div
     `
     display: grid;
-
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 2rem;
+    column-gap: 5rem;
     text-align:center;
 
+    @media (max-width:768px){
+
+         display:inline-block;
+       
+       }
 `;
 
 const loadAnimation = keyframes
@@ -37,11 +42,7 @@ const Loading = styled(MusicNoteBeamed)
  height:100px;
  width:100px;
  text-shadow: 0 0 8px #FF0000;
- bottom:-200px;
- top:400px;
- right:400px;
- left:952px;
- position:fixed;
+
 
 `;
 const TopSongs = styled.div
@@ -59,9 +60,16 @@ const SavedAlbums = styled.div
 
 `;
 
-const Greeting = styled.p
-    `
-    text-align: center;
+
+
+const PlayingCard = styled.div
+    `    
+    width:467px;
+    min-height:357px;
+    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 `;
 
 const MySpotifyPage = () => {
@@ -69,17 +77,31 @@ const MySpotifyPage = () => {
     const [artists, setArtists] = useState();
     const [albums, setAlbums] = useState();
     const [loaded, setLoading] = useState(false);
+    const [nowPlaying, setNowPlaying] = useState();
+    const [playerLoaded, setPlayerLoaded] = useState(false);
+    const [online, setOnline]= useState(false);
 
     async function fetchData() {
         let trackResult = await GetMyTopTracks();
         let artistResult = await GetMyTopArtists();
         let albumResult = await GetMySavedAlbums();
-        //
+        let listenResult = await GetNowPlaying();
+        
+
+        //api call returns null that means im offline
+        if(listenResult !== null)
+        {
+            setOnline(true);
+        }
+  
         setTracks(trackResult);
         setArtists(artistResult);
         setAlbums(albumResult);
-
+        setNowPlaying(listenResult);
         setLoading(true);
+        setPlayerLoaded(true);
+
+      
     }
     //
     useEffect(() => {
@@ -89,19 +111,23 @@ const MySpotifyPage = () => {
 
 
     if (loaded) {
+
+    
         return (
             <Layout pageTitle="My Spotify">
-                <Greeting>Here you can see what I listen to! Updates every month.</Greeting>
+                <p></p>
 
-                <NowPlayingDisplay>
-                </NowPlayingDisplay>
+                {/* if the now playing plater has loaded and im online display it, if not it should display currently offline */}
+                {playerLoaded && online ?  <NowPlayingDisplay name={nowPlaying.name} artist = {nowPlaying.artist} image = {nowPlaying.image} trackUrl = {nowPlaying.trackUrl} isPlaying = {nowPlaying.isPlaying} loaded = {playerLoaded} online = {online} >
+                </NowPlayingDisplay> : <NowPlayingDisplay name={null} artist = {null} image = {null} trackUrl = {null} isPlaying = {null} loaded = {playerLoaded} online = {online} >
+                </NowPlayingDisplay> }               
+               
+                <div><br></br><br></br></div>
 
                 <Container>
 
                     <TopSongs>
-                        <p>MY TOP SONGS!</p>
-
-
+                        <p>Top Tracks for This Month</p>
                         {
                             tracks.map((song, id) => {
                                 return (
@@ -116,9 +142,7 @@ const MySpotifyPage = () => {
 
                     </TopSongs>
                     <TopArtists>
-                        <p>MY TOP ARTISTS!</p>
-
-
+                        <p>Top Artists for This Month</p>
                         {
                             artists.map((artist, id) => {
                                 return (
@@ -132,7 +156,7 @@ const MySpotifyPage = () => {
                         }
                     </TopArtists>
                     <SavedAlbums>
-                        <p>MY SAVED ALBUMS!</p>
+                        <p>Albums I Like</p>
                         {
                             albums.map((album, id) => {
                                 return (
@@ -141,8 +165,6 @@ const MySpotifyPage = () => {
                                     </div>
                                 )
                             })
-
-
                         }
                     </SavedAlbums>
 
@@ -152,7 +174,7 @@ const MySpotifyPage = () => {
     }
 
     else {
-        return (<Loading />)
+        return (<Layout pageTitle="My Spotify"><p><br></br><br></br></p><PlayingCard><Loading  /></PlayingCard></Layout>)
 
     }
 
