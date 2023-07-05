@@ -30,7 +30,7 @@ export default async function GetNowPlaying(req,res) {
         trackUrl: song.item.uri,
         image: image,
         isPlaying: song.is_playing,
-        artist: song.item.artists[0].name
+        artist: song.item.artists.map((_artist) => _artist.name).join(', '),
     };
 
 
