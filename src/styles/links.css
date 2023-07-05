@@ -1,0 +1,21 @@
+.nav-link-text {
+    color: black;
+    text-decoration: none;
+}
+
+
+.nav-link-text:hover {
+    color: #FFB2C0;
+
+}
+
+.console-underscore {
+    display:inline-block;
+   position:relative;
+   top:-0.14em;
+   left:10px;
+ }
+
+ .hidden {
+    opacity:0;
+  }
