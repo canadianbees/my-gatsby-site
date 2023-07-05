@@ -3,14 +3,14 @@ import React from 'react';
 
 const AlbumCard = styled.div
     `
-    width: 120%;
-    gap: 2rem;
+    width: 80%;
+    gap: 10rem;
     display: flex;
     flex-direction: column;
-    font-size: 15px;
+    font-size: 1.5vw;
     align-self: center;
     padding: 5%;
-    height:97px;
+  
 
     &:hover
     {
@@ -24,6 +24,10 @@ const AlbumCard = styled.div
             height: 95px;
         }
     }
+
+    @media (max-width:375px){
+        width:90%
+        }
 
 `;
 
@@ -57,10 +61,11 @@ const AlbumInfo = styled.div
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    text-align:left;
 
     span:nth-of-type(1){
         font-weight: bold;
-        font-size:30px;
+        font-size:1.75vw;
     }
     a{
         color:#191714;
@@ -71,6 +76,14 @@ const AlbumInfo = styled.div
         color:  #AF5B6C;
        
     }
+
+    @media (max-width:768px){
+        span:nth-of-type(1){
+            font-size:25px;
+        }
+        font-size:20px;
+      
+      }
 `;
 
 

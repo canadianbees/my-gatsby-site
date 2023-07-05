@@ -4,14 +4,12 @@ import { Howl } from "howler";
 
 const SongCard = styled.div
     `
-    width: 120%;
+    width: 100%;
     gap: 2rem;
     display: flex;
     flex-direction: column;
-    font-size: 15px;
+    font-size: 1.5vw;
     align-self: center;
- 
-    height:97px;
     padding: 5%;
     
     &:hover
@@ -27,6 +25,10 @@ const SongCard = styled.div
             height: 95px;
         }
     }
+
+    @media (max-width:375px){
+       width:90%
+       }
 `;
 
 
@@ -58,12 +60,20 @@ const SongNameInfo = styled.div
     align-items: flex-start;
     justify-content: center;
     width: 90%;
+    text-align:left;
 
     span:nth-of-type(1){
         font-weight: bold;
-        font-size:30px;
+        font-size:2vw;
     }
-    
+
+    @media (max-width:768px){
+        span:nth-of-type(1){
+            font-size:25px;
+        }
+        font-size:20px;
+      
+      }
 `;
 
 var audio = null;

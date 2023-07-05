@@ -23,7 +23,8 @@ const Animation = keyframes`
   }
 `;
 
-const Playing = styled.div`
+const Playing = styled.div
+`
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -32,6 +33,13 @@ const Playing = styled.div`
     top:-1px;
     left:29px;
   
+    @media (max-width:1054px){
+
+  display:none;
+
+}
+
+
     span {
         width: 25px;
         height: 150%;
@@ -57,13 +65,13 @@ const Playing = styled.div`
 
 
 const PlayingAnimation = () => {
-    return(
-        <Playing>
-            <span />
-            <span />
-            <span />
-        </Playing>
-    )
+  return (
+    <Playing>
+      <span />
+      <span />
+      <span />
+    </Playing>
+  )
 };
 
 export default PlayingAnimation;

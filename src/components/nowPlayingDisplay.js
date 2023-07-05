@@ -17,6 +17,24 @@ const PlayingCard = styled.div
     a{
         color:#191414;
     }
+
+    @media (max-width:768px){
+
+        display:inline;
+        width:70vw;
+      
+      }
+
+      
+
+      @media (max-width:1054px){
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:space-around;
+      
+      }
 `;
 
 const SpotifyLogo = styled(Spotify)
@@ -41,6 +59,15 @@ const Listening = styled.span
     position:relative;
     top:-157px;
     left:53px;
+
+    
+
+    @media (max-width:1054px){
+
+        top:-215px;
+        left:0px;
+      
+      }
 `;
 
 const Offline = styled.span
@@ -67,6 +94,14 @@ const PlayingImg = styled.img
     border-width:3px;
     border-style:solid;
 
+    @media (max-width:1054px){
+
+        position:relative;
+        left:-21px;
+        top:16px;
+      
+      }
+
 `;
 
 const PlayingInfo = styled.span
@@ -76,6 +111,13 @@ const PlayingInfo = styled.span
     font-weight:600;
     position:relative;
     top:8px;
+
+    @media (max-width:1054px){
+
+        top:-50px;
+        left:-4px;
+      
+      }
 `;
 
 const loadAnimation = keyframes
@@ -98,7 +140,7 @@ const Loading = styled(MusicNoteBeamed)
 `;
 
 const Bottom = styled.div
-`
+    `
 display:flex;
 padding-right:32px;
 min-height:53px;
@@ -107,15 +149,24 @@ position:relative;
 top:-54px;
 left:22px;
 
+@media (max-width:1054px){
+
+    position:relative;
+  text-align:center;
+  left:140px;
+  top:57px;
+  
+  }
+
 `;
 
-const NowPlayingDisplay = ({name, artist, image, trackUrl, isPlaying, loaded, online}) => {
-    const LoadingFormat = 
+const NowPlayingDisplay = ({ name, artist, image, trackUrl, isPlaying, loaded, online }) => {
+    const LoadingFormat =
     {
-        display:'flex',
-        alignItems:'center',
-        flexDirection:'column',
-        justifyContent:'center',
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'center',
     }
 
     if (loaded) {
@@ -129,18 +180,18 @@ const NowPlayingDisplay = ({name, artist, image, trackUrl, isPlaying, loaded, on
                     {isPlaying ?
 
 
-                   
-                            <PlayingCard>
-                                <PlayingImg src={image} alt="" />
-                                <Listening>Now Playing</Listening>
-                                <Animation>{isPlaying && <PlayingAnimation />} </Animation>
-                                <Bottom>
-                                <PlayingInfo>{name}<br></br>{artist}</PlayingInfo>
-                                </Bottom>
-                                <a href={trackUrl} aria-label="Open song" title="Interested? Click to open the song in Spotify!"><SpotifyLogo></SpotifyLogo></a>
-                            </PlayingCard>
 
-                      
+                        <PlayingCard>
+                            <PlayingImg src={image} alt="" />
+                            <Listening>Now Playing</Listening>
+                            <Animation>{isPlaying && <PlayingAnimation />} </Animation>
+                            <Bottom>
+                                <PlayingInfo>{name}<br></br>{artist}</PlayingInfo>
+                            </Bottom>
+                            <a href={trackUrl} aria-label="Open song" title="Interested? Click to open the song in Spotify!"><SpotifyLogo></SpotifyLogo></a>
+                        </PlayingCard>
+
+
 
 
                         : <Offline>Not playing anything at the moment<br></br><br></br></Offline>}
@@ -161,7 +212,7 @@ const NowPlayingDisplay = ({name, artist, image, trackUrl, isPlaying, loaded, on
     else {
         return (<PlayingCard style={LoadingFormat}>
             <Loading />
-            <SpotifyLogo style={{color:'#C3B59F'}} ></SpotifyLogo>
+            <SpotifyLogo style={{ color: '#C3B59F' }} ></SpotifyLogo>
         </PlayingCard>
         )
     }

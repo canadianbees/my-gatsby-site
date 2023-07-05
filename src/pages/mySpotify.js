@@ -17,13 +17,18 @@ const Container = styled.div
     `
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5rem;
+    column-gap: 8.5rem;
     text-align:center;
 
     @media (max-width:768px){
 
          display:inline-block;
        
+       }
+
+       @media (max-width:320px){
+        grid-template-columns: 1fr;
+        column-gap:0;
        }
 `;
 
@@ -101,6 +106,8 @@ const MySpotifyPage = () => {
         setLoading(true);
         setPlayerLoaded(true);
 
+        console.log(artistResult);
+
       
     }
     //
@@ -147,7 +154,7 @@ const MySpotifyPage = () => {
                             artists.map((artist, id) => {
                                 return (
                                     <div key={id}>
-                                        <ArtistCardDisplay name={artist.name} image={artist.img} url={artist.artistUrl}></ArtistCardDisplay>
+                                        <ArtistCardDisplay name={artist.name} image={artist.img} url={artist.artistUrl} genre={artist.genre}></ArtistCardDisplay>
                                     </div>
                                 )
                             })

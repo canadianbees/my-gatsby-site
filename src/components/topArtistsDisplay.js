@@ -4,13 +4,12 @@ import React from 'react';
 const ArtistCard = styled.div
     `
     width: 120%;
-    gap: 2rem;
+    gap: 10rem;
     display: flex;
     flex-direction: column;
-    font-size: 15px;
+    font-size: 1.5vw;
     align-self: center;
-    padding: 5%;
-    height:97px;
+    padding: 3%;
 
     &:hover
     {
@@ -26,6 +25,9 @@ const ArtistCard = styled.div
 
     }
 
+    @media (max-width:375px){
+        width:90%
+        }
    
 `;
 
@@ -59,10 +61,11 @@ const ArtistInfo = styled.div
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    text-align:left;
 
     span:nth-of-type(1){
         font-weight: bold;
-        font-size:30px;
+        font-size:1.75vw;
     }
 
     a{
@@ -74,10 +77,18 @@ const ArtistInfo = styled.div
     a:hover{
         color:  #AF5B6C;
     }
+
+    @media (max-width:768px){
+        span:nth-of-type(1){
+            font-size:25px;
+        }
+        font-size:20px;
+      
+      }
 `;
 
 
-const ArtistCardDisplay = ({ name, image, url }) => {
+const ArtistCardDisplay = ({ name, image, url, genre }) => {
 
     return (
         <ArtistCard>
@@ -86,6 +97,7 @@ const ArtistCardDisplay = ({ name, image, url }) => {
                     <ArtistImg src={image} alt="" />
                     <ArtistInfo>
                         <span>{name}</span>
+                        <span>{genre}</span>
                         <a href={url}>Check this artist out</a>
                     </ArtistInfo>
                 </div>
