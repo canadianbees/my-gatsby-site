@@ -2,9 +2,7 @@ html{
 
     font-size:150%;
 
-
 }
-
 
 
 body{
@@ -17,9 +15,23 @@ body{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x:hidden;
-
-
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow:  0 0 10px grey;
+    border-radius: 10px;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #090C08;
+    border-radius: 5px;
+  }
 
 @font-face{
 

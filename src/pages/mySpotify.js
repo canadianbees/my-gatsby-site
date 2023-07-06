@@ -17,7 +17,7 @@ const Container = styled.div
     `
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 8.5rem;
+    column-gap: 7rem;
     text-align:center;
 
     @media (max-width:768px){
