@@ -3,7 +3,7 @@ import React from 'react';
 
 const AlbumCard = styled.div
     `
-    width: 80%;
+    width: 90%;
     gap: 10rem;
     display: flex;
     flex-direction: column;
@@ -37,6 +37,7 @@ const Album = styled.div
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height:100px;
 
     div{
         display: flex;

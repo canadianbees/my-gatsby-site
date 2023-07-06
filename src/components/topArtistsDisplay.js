@@ -3,13 +3,13 @@ import React from 'react';
 
 const ArtistCard = styled.div
     `
-    width: 120%;
+    width: 90%;
     gap: 10rem;
     display: flex;
     flex-direction: column;
     font-size: 1.5vw;
     align-self: center;
-    padding: 3%;
+    padding: 5%;
 
     &:hover
     {
@@ -37,6 +37,7 @@ const Artist = styled.div
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height:100px;
 
     div{
         display: flex;
