@@ -25,6 +25,18 @@ const Heading = styled.div
     color: #090C08;
     font-size: 3rem;
     text-align: center;
+
+    @media (max-width:320px){
+        
+        font-size:50px;
+      
+      }
+
+      @media (max-width:375px){
+        
+        font-size:60px;
+      
+      }
 `;
 
 
@@ -37,9 +49,15 @@ const NavLinks = styled.ul
 const NavLinkItem = styled.li
     `
 padding-right: 2rem;
+`;
+
+const Name = styled.p
+    `
+text-align: center;
+
 `
 
-const Layout = ({ pageTitle, children}) => {
+const Layout = ({ pageTitle, children }) => {
 
 
     function consoleText(words, id, colors) {
@@ -47,11 +65,12 @@ const Layout = ({ pageTitle, children}) => {
         //if colors are bad, make the text black
         if (colors === undefined) colors = ['#fff'];
         var visible = true;
-        var con = document.getElementById('console'); // get span tag
+        var con = document.getElementById('console'); //underscore
         var letterCount = 1;
         var x = 1;
         var waiting = false;
-        var target = document.getElementById(id)
+        var target = document.getElementById(id) //span tag
+        target.style.fontSize = '3em';
         target.setAttribute('style', 'color:' + colors[0])
         window.setInterval(function () {
 
@@ -70,7 +89,7 @@ const Layout = ({ pageTitle, children}) => {
                     waiting = false;
                 }, 1000)
 
-                
+
             } else if (letterCount === words[0].length + 1 && waiting === false) {
                 waiting = true;
                 window.setTimeout(function () {
@@ -99,12 +118,22 @@ const Layout = ({ pageTitle, children}) => {
     async function fetchData() {
 
         if (pageTitle === 'Home Page') {
-            consoleText(['welcome!', 'go ahead and look around.', 'made with React.'], 'text', ['#FFB2C0', '#ADE7FF', '#FFD15C']);
+            consoleText(['welcome!', 'go ahead and look around.', 'made with React.'], 'text', ['#FFB2C0', '#FFB2C0', '#FFB2C0']);
         }
 
         if (pageTitle === 'My Spotify') {
 
-            consoleText(['my Spotify', 'click on a top track!', 'updates every 4 weeks.'], 'text', ['#FFD15C', '#ADE7FF', '#FFB2C0']);
+            consoleText(['my Spotify.', 'click a track!', 'ariana rocks.'], 'text', ['#FFB2C0', '#FFB2C0', '#FFB2C0']);
+        }
+
+        if (pageTitle === 'About Me') {
+
+            consoleText(['who am i?', 'glad you asked.'], 'text', ['#FFB2C0', '#FFB2C0']);
+        }
+
+        if (pageTitle === 'Projects') {
+
+            consoleText(['PROJECTS!', 'ENJOY!'], 'text', ['#FFB2C0', '#FFB2C0']);
         }
 
 
@@ -123,28 +152,58 @@ const Layout = ({ pageTitle, children}) => {
             <Container>
                 <nav>
                     <NavLinks>
-
                         <NavLinkItem>
-
                             <Link to="/" className="nav-link-text"> HOME</Link>
                         </NavLinkItem>
-
                         <NavLinkItem>
                             <Link to="/about" className="nav-link-text">ABOUT</Link>
                         </NavLinkItem>
-
+                        <NavLinkItem>
+                            <Link className="nav-link-text" to="/myProjects">PROJECTS</Link>
+                        </NavLinkItem>
                         <NavLinkItem>
                             <Link className="nav-link-text" to="/mySpotify">SPOTIFY</Link>
                         </NavLinkItem>
                     </NavLinks>
                 </nav>
                 <Main>
-                    <Heading><span id='text'></span>
-                        <div class='console-underscore' id='console'>&#95;</div>
-                    </Heading>
 
-                    {pageTitle==='Home Page' ? <p> by celina alzenor</p> :<></>}
-                    
+
+                    {pageTitle === 'Home Page' ?
+                        <>
+                            <br></br><br></br>
+                            <br></br><br></br>
+                            <br></br><br></br>
+                            <br></br><br></br>
+                            <br></br><br></br>
+                            <Heading>
+                                <span id='text'></span>
+                                <div class='console-underscore' id='console'>&#95;
+                                </div>
+                            </Heading>
+
+                            <Name>
+                                <br></br><br></br>
+                                <br></br><br></br>
+                                <br></br><br></br>
+                                <br></br><br></br>
+                                <br></br><br></br>
+                                <br></br><br></br>
+                                by celina alzenor
+                                <br></br>
+                                student, frontend, creative
+
+                            </Name>
+                        </> :
+                        <>
+                            <Heading>
+                                <span id='text'></span>
+                                <div class='console-underscore' id='console'>
+                                    &#95;
+                                </div>
+                            </Heading>
+                        </>}
+
                     {children}
                 </Main>
             </Container>
