@@ -20,6 +20,7 @@
     "@styled-icons/fa-brands": "^10.47.0",
     "@styled-icons/fa-regular": "^10.47.0",
     "@styled-icons/icomoon": "^10.46.0",
+    "@styled-icons/simple-icons": "^10.46.0",
     "animate.css": "^4.1.1",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
