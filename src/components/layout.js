@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import '../styles/links.css';
 import { useEffect, useState } from 'react';
 import Hamburger from "./hamburger";
 
@@ -201,13 +200,35 @@ const Layout = ({ pageTitle, children }) => {
                     <style jsx>
                         {
                             `
+                            .nav-link-text {
+                                color: #090C08;
+                                text-decoration: none;
+                            }
+                            
+                            
+                            .nav-link-text:hover {
+                                color: #FFB2C0;
+                            
+                            }
+                            
+                            .console-underscore {
+                                display:inline-block;
+                               position:relative;
+                               top:-0.14em;
+                               left:10px;
+                             }
+                            
+                             .hidden {
+                                opacity:0;
+                              }
+
                             @media (max-width:768px)
                             {
 
                                 .words{
 
                                     display:inline;
-                                    opacity:${hamburgerOpen ? '1' : '0'};
+                                    visibility:${hamburgerOpen ? 'visbile' : 'hidden'};
                                     position:fixed;
                                     padding-left: 8px;
                                     transition: display 1s ease-in;
@@ -215,7 +236,6 @@ const Layout = ({ pageTitle, children }) => {
                                     z-index:10;
                                     background-color:white;
                                     width: 115px;
-                                    
                                 }
 
                                 .navigation
