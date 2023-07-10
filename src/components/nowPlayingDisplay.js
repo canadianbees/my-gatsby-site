@@ -107,8 +107,7 @@ const Listening = styled.span`
 `;
 
 const Animation = styled.div`
- margin-top:-50px;
- margin-bottom:96px;
+ margin-bottom:95px;
 
  //iphone SE
  @media (max-width:375px){
