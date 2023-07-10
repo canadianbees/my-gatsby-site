@@ -40,6 +40,7 @@ const Heading = styled.div`
    
     @media (max-width:425px){
         max-width:350px;
+        font-size:2.5rem;
       
       }
 
@@ -74,6 +75,7 @@ const Lunch = styled.div`
 const Layout = ({ pageTitle, children }) => {
 
     const [hamburgerOpen, setBurger] = useState(false);
+    const [done, setDone] = useState(false);
 
 
     const toggleBurger = () => {
@@ -86,13 +88,7 @@ const Layout = ({ pageTitle, children }) => {
 
             setBurger(true);
         }
-
-        console.log('HEEELPP')
     };
-
-
-
-
 
     const consoleText = (words, id, colors) => {
 
@@ -166,7 +162,7 @@ const Layout = ({ pageTitle, children }) => {
 
         if (pageTitle === 'Projects') {
 
-            consoleText(['PROJECTS!', 'ENJOY!'], 'text', ['#FFB2C0', '#FFB2C0']);
+            consoleText(['My Projects'], 'text', ['#FFB2C0']);
         }
 
 
@@ -174,8 +170,9 @@ const Layout = ({ pageTitle, children }) => {
     useEffect(() => {
 
         fetchData();
+        setDone(true)
 
-    });
+    },[done]);
 
     return (
 
@@ -210,7 +207,7 @@ const Layout = ({ pageTitle, children }) => {
                                 .words{
 
                                     display:inline;
-                                    opacity:${hamburgerOpen ? '100' : '0'};
+                                    opacity:${hamburgerOpen ? '1' : '0'};
                                     position:fixed;
                                     padding-left: 8px;
                                     transition: display 1s ease-in;
@@ -238,8 +235,15 @@ const Layout = ({ pageTitle, children }) => {
 
 
                     {pageTitle === 'Home Page' ?
-                        <>                          
-                            <Heading style={{ marginTop:'200px'}}>
+                        <>
+                            <br></br>
+                            <br></br>  
+                            <br></br>  
+                            <br></br>
+                            <br></br>  
+                            <br></br>  
+                            <br></br>                          
+                            <Heading>
                                 <span id='text'></span>
                                 <div class='console-underscore' id='console'>&#95;
                                 </div>
@@ -248,7 +252,6 @@ const Layout = ({ pageTitle, children }) => {
                                 by celina alzenor
                                 <br></br>
                                 student
-
                             </Name>
                         </> :
                         <>
