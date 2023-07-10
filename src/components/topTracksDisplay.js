@@ -3,14 +3,14 @@ import React from 'react';
 import { Howl } from "howler";
 
 
-const SongNameInfo = styled.div
-    `
+const SongNameInfo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     width: 90%;
     text-align:left;
+    
 
     span:nth-of-type(1){
         font-weight: bold;
@@ -28,19 +28,19 @@ const SongNameInfo = styled.div
 
 `;
 
-const SongCard = styled.div
-    `
-    width: 90%;
-    gap: 2rem;
+const SongCard = styled.div`
+    width: 110%;
+    gap: 10rem;
     display: flex;
     flex-direction: column;
     font-size: 1.5vw;
     align-self: center;
     padding: 5%;
+    transition: background-color 0.5s;
+    border-radius: 1rem;
     
     &:hover
     {
-        border-radius: 1rem;
         background-color: #C3B59F;
         box-shadow:0px 0px 15px 4px #756d5f;
         cursor: pointer;
@@ -57,20 +57,21 @@ const SongCard = styled.div
             {
                 
                   color:  #AF5B6C;
+                  transition: color 0.2s;
                 
             }
         }
     }
 
-    @media (max-width:375px){
-       width:90%
-       }
+
+       @media (max-width:768px){
+        width:90%;
+    }
 
 `;
 
 
-const Song = styled.div
-    `
+const Song = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,8 +84,7 @@ const Song = styled.div
 `;
 
 
-const SongImg = styled.img
-    `
+const SongImg = styled.img`
     width: 75px;
     height: 75px;
     border-radius: .5rem;

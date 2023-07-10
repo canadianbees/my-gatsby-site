@@ -23,21 +23,12 @@ const Animation = keyframes`
   }
 `;
 
-const Playing = styled.div
-`
+const Playing = styled.div`
     position: relative;
     display: flex;
     justify-content: space-between;
     width: 100px;
     height: 100px;
-    top:-1px;
-    left:29px;
-  
-    @media (max-width:1054px){
-
-  display:none;
-
-}
 
 
     span {

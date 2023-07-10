@@ -1,6 +1,7 @@
 .nav-link-text {
-    color: black;
+    color: #090C08;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 

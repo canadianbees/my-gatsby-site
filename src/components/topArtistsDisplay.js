@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 import React from 'react';
 
-const ArtistCard = styled.div
-    `
-    width: 90%;
+const ArtistCard = styled.div`
+    width: 110%;
     gap: 10rem;
     display: flex;
     flex-direction: column;
     font-size: 1.5vw;
     align-self: center;
     padding: 5%;
+    transition: background-color 0.5s;
+    border-radius: 1rem;
 
     &:hover
     {
-        border-radius: 1rem;
         background-color: #C3B59F;
         box-shadow:0px 0px 15px 4px #756d5f;
 
@@ -25,15 +25,14 @@ const ArtistCard = styled.div
 
     }
 
-    @media (max-width:375px){
-        width:90%
-        }
+    @media (max-width:768px){
+        width:90%;
+    }
    
 `;
 
 
-const Artist = styled.div
-    `
+const Artist = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,23 +45,22 @@ const Artist = styled.div
 `;
 
 
-const ArtistImg = styled.img
-    `
-width: 75px;
-height: 75px;
-right:5px;
-position: center;
-border-radius: .5rem;
-transition: width .5s, height .5s;
+const ArtistImg = styled.img`
+    width: 75px;
+    height: 75px;
+    right:5px;
+    position: center;
+    border-radius: .5rem;
+    transition: width .5s, height .5s;
 `;
 
-const ArtistInfo = styled.div
-    `
+const ArtistInfo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     text-align:left;
+    
 
     span:nth-of-type(1){
         font-weight: bold;
@@ -70,13 +68,14 @@ const ArtistInfo = styled.div
     }
 
     a{
-        font-weight: bold;
-    color: #090C08;
-    text-decoration: none;  
+        
+        color: #090C08;
+        text-decoration: none;
     }
 
     a:hover{
         color:  #AF5B6C;
+        transition: color 0.2s;
     }
 
     @media (max-width:768px){

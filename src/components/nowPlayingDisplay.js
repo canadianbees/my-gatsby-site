@@ -5,40 +5,68 @@ import { Spotify } from '@styled-icons/fa-brands';
 import { MusicNoteBeamed } from '@styled-icons/bootstrap';
 import { keyframes } from 'styled-components';
 
-const PlayingCard = styled.div
-    `    
-    display:inline-block;
+const PlayingCard = styled.div`    
+    display:grid;
+    grid-template-columns: 1fr 1fr;
     background-color: #C3B59F;
-    width:467px;
+    width:460px;
     min-height:357px;
-    box-shadow:0px 0px 15px 15px #756d5f;
+    box-shadow:0px 0px 20px 10px #756d5f;
     border-radius:18px;
     position: relative;
+
     a{
         color:#191414;
     }
 
-    @media (max-width:768px){
+    //large moba
+    @media (max-width:425px){
 
-        display:inline;
-        width:70vw;
+    grid-template-row: 1fr;
+    width:400px;
+    column-gap:50px;
+    }
+
+
+    @media (max-width:400px){
+
+    grid-template-row: 1fr;
+    width:375px;
+    }
+
+
+    //iphone SE - medium moba
+    @media (max-width:375px){
+
+    width:325px;
+    }
+
+    //small moba
+    @media (max-width:320px){
+        width:300px;
+    }
+
       
-      }
-
-      
-
-      @media (max-width:1054px){
-
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:space-around;
-      
-      }
 `;
 
-const SpotifyLogo = styled(Spotify)
-    `
+const Right = styled.div`
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:space-around;
+
+//iphone SE
+@media (max-width:375px){
+    flex-direction:row;
+  justify-content:normal;
+  align-items:normal;
+      
+}
+ 
+
+`;
+
+const SpotifyLogo = styled(Spotify)`
     width: 30px;
     height: 30px;
     position:absolute;
@@ -60,93 +88,114 @@ const SpotifyLogo = styled(Spotify)
       
       }
 
-      @media (max-width:615px){
-
-       top:12px;
-      
-      }
 `;
 
-const Listening = styled.span
-    `
+const Listening = styled.span`
     font-size:30px;
     font-weight:600;
     display:inline-block;
     position:relative;
-    top:-157px;
-    left:53px;
 
-    
+    @media (max-width:375px)
+    {
+        height:40px;
+        width:150px;
+        margin-top:10px;
+        margin-left: -115px;
+    }
 
-    @media (max-width:1054px){
+`;
 
-        top:-215px;
-        left:0px;
+const Animation = styled.div`
+ margin-top:-50px;
+ margin-bottom:96px;
+
+ //iphone SE
+ @media (max-width:375px){
+    display:none;
       
-      }
+}
+   
 `;
 
-const Offline = styled.span
-    `
-    font-size:30px;
-    font-weight:600;
-    display:block;
-    text-align: center;
-`;
 
-const Animation = styled.div
-    `
-    transform:translatex(267px) translatey(-109px);
-`;
 
-const PlayingImg = styled.img
-    `
-    width: 200px;
-    height: 200px;
-    display:inline-block;
-    transform:translatex(22px) translatey(48px);
-    border-radius:18px;
-    border-color:#1DB954;
-    border-width:3px;
-    border-style:solid;
-
-    @media (max-width:1054px){
-
-        position:relative;
-        left:-21px;
-        top:16px;
-      
-      }
-
-`;
-
-const PlayingInfo = styled.span
-    `  
-    font-size:20px;
-    display:block;
-    font-weight:600;
-    position:relative;
- 
-
-    @media (max-width:615px){
-
-    
-        font-size:16px;
-        top:8px;
-       }
-
-`;
-
-const loadAnimation = keyframes
-    `
+const loadAnimation = keyframes`
     0% {color: #191414;}
     50% {color: #1DB954;}
     100% {color: #191414;}
 
 `;
 
-const Loading = styled(MusicNoteBeamed)
-    `
+
+const Left = styled.div`
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ float:right;
+ justify-content:space-between;
+ text-align:center;
+ position:relative;
+
+
+ //iphone SE
+ @media (max-width:375px){
+    margin-right:-50px;
+  margin-left:50px;
+      
+}
+ 
+`;
+
+const PlayingImg = styled.img`
+    width: 200px;
+    height: 200px;
+    display:inline-block;
+    border-radius:18px;
+    border-color:#1DB954;
+    border-width:3px;
+    border-style:solid;
+    margin-right:-50px;
+    margin-top: 50px;
+    
+
+     //iphone SE
+ @media (max-width:375px){
+    margin-top:50px;
+      
+}
+
+
+`;
+
+const PlayingInfo = styled.span`  
+    font-size:20px;
+    display:block;
+    font-weight:600;
+    position:relative;
+    margin-right:-50px;
+    margin-bottom:40px;
+
+     //iphone SE
+     @media (max-width:375px){
+    margin-top:-10px;
+    margin-bottom: 40px;
+      
+}
+ 
+`;
+
+
+const Offline = styled.span`
+    font-size:30px;
+    font-weight:600;
+    display:block;
+    text-align: center;
+`;
+
+
+
+const Loading = styled(MusicNoteBeamed)`
  animation: 1.25s ease-in-out ${loadAnimation} infinite;
 
  height:100px;
@@ -156,32 +205,7 @@ const Loading = styled(MusicNoteBeamed)
 
 `;
 
-const Bottom = styled.div
-    `
-display:flex;
-padding-right:32px;
-min-height:53px;
-width:410px;
-position:relative;
-left:22px;
-top:-45px;
-@media (max-width:1054px){
 
-    position:relative;
-  text-align:center;
-
-  top:8px;
-  }
-
-
-  @media (max-width:615px){
-
-    top:0px;
-     width:229px;
-    }
-    
-
-`;
 
 const NowPlayingDisplay = ({ name, artist, image, trackUrl, isPlaying, loaded, online }) => {
     const LoadingFormat =
@@ -204,15 +228,22 @@ const NowPlayingDisplay = ({ name, artist, image, trackUrl, isPlaying, loaded, o
 
 
                         <>
-                        <PlayingCard>
-                            <PlayingImg src={image} alt="" />
-                            <Listening>Now Playing</Listening>
-                            <Animation>{isPlaying && <PlayingAnimation />} </Animation>
-                            <Bottom>
-                                <PlayingInfo>{name}<br></br>{artist}</PlayingInfo>
-                            </Bottom>
-                            <a href={trackUrl} aria-label="Open song" title="Interested? Click to open the song in Spotify!"><SpotifyLogo></SpotifyLogo></a>
-                        </PlayingCard>
+                            <PlayingCard>
+
+
+                                <Left> <PlayingImg src={image} alt="" />
+                                    <br></br>
+                                    <PlayingInfo>{name}<br></br>{artist}</PlayingInfo>
+                                </Left>
+
+                                <Right>
+                                    <Listening>Now Playing</Listening>
+                                    <Animation>{isPlaying && <PlayingAnimation />} </Animation>
+                                    <a href={trackUrl} aria-label="Open song" title="Interested? Click to open the song in Spotify!"><SpotifyLogo></SpotifyLogo></a>
+                                </Right>
+
+
+                            </PlayingCard>
 
 
                         </>

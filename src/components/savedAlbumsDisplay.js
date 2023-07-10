@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 
-const AlbumCard = styled.div
-    `
+const AlbumCard = styled.div`
     width: 90%;
     gap: 10rem;
     display: flex;
@@ -10,11 +9,13 @@ const AlbumCard = styled.div
     font-size: 1.5vw;
     align-self: center;
     padding: 5%;
+    transition: background-color 0.5s;
+    border-radius: 1rem;
   
 
     &:hover
     {
-        border-radius: 1rem;
+        
         background-color: #C3B59F;
         box-shadow:0px 0px 15px 4px #756d5f;
         
@@ -25,15 +26,14 @@ const AlbumCard = styled.div
         }
     }
 
-    @media (max-width:375px){
-        width:90%
-        }
+    @media (max-width:768px){
+        width:90%;
+    }
 
 `;
 
 
-const Album = styled.div
-    `
+const Album = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,8 +46,7 @@ const Album = styled.div
 `;
 
 
-const AlbumImg = styled.img
-    `
+const AlbumImg = styled.img`
 width: 75px;
 height: 75px;
 right:5px;
@@ -56,8 +55,7 @@ border-radius: .5rem;
 transition: width .5s, height .5s;
 `;
 
-const AlbumInfo = styled.div
-    `
+const AlbumInfo = styled.div `
     display: inline-block;
     flex-direction: column;
     align-items: flex-start;
@@ -71,10 +69,11 @@ const AlbumInfo = styled.div
     a{
         color:#191714;
         text-decoration: none;
-        font-weight: bold;
+        transition: 0.3s;
     }
     a:hover{
         color:  #AF5B6C;
+        transition: color 0.2s;
        
     }
 
