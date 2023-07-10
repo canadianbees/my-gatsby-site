@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Layout from '../components/layout'
 import styled from 'styled-components'
-import { Html5, Python, ReactLogo, RProject} from '@styled-icons/fa-brands';
+import { Html5, Python, ReactLogo, RProject } from '@styled-icons/fa-brands';
 import { Javascript } from '@styled-icons/simple-icons';
 import { keyframes } from 'styled-components';
 import CProg from '../assets/images/icons8-c-programming.svg'
@@ -10,11 +10,20 @@ const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;;
-    column-gap:100px;
 
     text-align:center;
     margin-left:100px;
+    margin-right:100px;
     height:100%;
+
+    @media (max-width:1045px)
+    {
+      grid-template-rows: .5fr .5fr 1fr;
+      grid-template-columns: 1fr 1fr;
+   
+    }
+
+
     
 `;
 
@@ -23,6 +32,51 @@ const Me = styled.div`
   grid-column-start: 1;
   grid-row-end: 2;
   grid-column-end: 2;
+
+  @media (max-width:1045px)
+  {
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+   grid-row-end: 2;
+   grid-column-end: 3;
+   
+  }
+
+  @media (max-width:425px){
+        
+    p{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+            
+          
+  }
+
+  @media (max-width:400px){
+
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+@media (max-width:375px){
+    
+  p{
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  
+  }
+
+@media (max-width:320px){
+    
+  p{
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+  
+  }
 `;
 
 const Goal = styled.div`
@@ -30,11 +84,65 @@ const Goal = styled.div`
   grid-column-start: 1;
   grid-row-end: 3;
   grid-column-end: 2;
+
+  @media (max-width:1045px)
+  {
+    grid-row-start: 2;
+    grid-column-start: 1;
+
+    grid-row-end: 3;
+    grid-column-end: 3;
+   
+  }
+  
+  @media (max-width:425px){
+
+        
+    p{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+        
+      
+  }
+
+    
+  @media (max-width:375px){
+      
+    p{
+    padding-left: 40px;
+    padding-right: 40px;
+    }
+    
+  }
+    
+
+
+  @media (max-width:320px)
+  {
+    grid-row-start: 2;
+    grid-column-start: 1;
+
+    grid-row-end: 3;
+    grid-column-end: 3;
+
+    p
+        {
+          padding-left: 75px;
+          padding-right: 75px;
+        }
+   
+  }
+
+
+        
+ 
+
 `;
 
 const Cube = styled.div`
-  width:500px;
-  height:500px;
+  width:425px;
+  height:425px;
   grid-row-start: 1;
   grid-column-start: 2;
   grid-row-end: 3;
@@ -45,7 +153,15 @@ const Cube = styled.div`
   justify-self: center;
   position: relative;
 
-  top:-33px;
+  @media (max-width:1045px)
+  {
+    grid-row-start: 3;
+    grid-column-start: 1;
+
+    grid-row-end: 4;
+    grid-column-end: 3;
+   
+  }
  
 
 `;
@@ -136,6 +252,7 @@ const Face6 = styled.div`
 const Headers = styled.h1`
 
   letter-spacing: 3px;
+  
 `;
 
 
@@ -165,7 +282,7 @@ const AboutPage = () => {
             <Face3><ReactLogo style={{ color: '#61DBFB' }} /></Face3>
             <Face4><RProject style={{ color: '#165CAA' }} /></Face4>
             <Face5><Javascript style={{ color: '#F0DB4F' }} /></Face5>
-            <Face6><img src={CProg}/></Face6>
+            <Face6><img src={CProg} /></Face6>
           </Spinner>
         </Cube>
 
