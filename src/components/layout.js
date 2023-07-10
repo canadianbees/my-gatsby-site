@@ -2,65 +2,114 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import '../styles/links.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Hamburger from "./hamburger";
 
-const Container = styled.div
-    `
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  position: relative;
-  display:flex;
-  font-family: Coolvet;
+
+const Container = styled.div`
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position: relative;
+    display:flex;
+    font-family: Coolvet;
+    width:100%;
 `;
-const Main = styled.main
-    `
-display:flex;
-flex-direction:column;
-align-items:center;
+
+const Main = styled.main`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
 
 `;
-const Heading = styled.div
-    `
+
+const Nav = styled.nav`
+    width:100%;
+    min-height:100px;
+
+    display:flex;
+    justify-content:center;
+
+`;
+
+const Heading = styled.div`
     color: #090C08;
-    font-size: 3rem;
+    font-size: 2.75rem;
     text-align: center;
 
-    @media (max-width:320px){
-        
-        font-size:50px;
-      
-      }
-
-      @media (max-width:375px){
+    @media (max-width:425px){
         
         font-size:60px;
       
       }
+
+    @media (max-width:400px){
+
+        font-size:50px;
+    } 
+
+
+    @media (max-width:375px){
+        
+        font-size:45px;
+      
+      }
+
+    @media (max-width:320px){
+        
+        font-size:40px;
+      
+      }
 `;
 
 
-const NavLinks = styled.ul
-    `
+
+const NavLinks = styled.ul`
+ 
     display: flex;
     list-style: none;
+    align-self:center;
 `;
 
-const NavLinkItem = styled.li
-    `
-padding-right: 2rem;
+const NavLinkItem = styled.li`
+    padding-right: 2rem;
 `;
 
-const Name = styled.p
-    `
-text-align: center;
+const Name = styled.p`
+    text-align: center;
 
-`
+`;
+
+const Lunch = styled.div`
+
+
+`;
 
 const Layout = ({ pageTitle, children }) => {
 
+    const [hamburgerOpen, setBurger] = useState(false);
 
-    function consoleText(words, id, colors) {
+
+    const toggleBurger = () => {
+
+        if (hamburgerOpen) {
+            setBurger(false);
+        }
+
+        else {
+
+            setBurger(true);
+        }
+
+        console.log('HEEELPP')
+    };
+
+
+
+
+
+    const consoleText = (words, id, colors) => {
 
         //if colors are bad, make the text black
         if (colors === undefined) colors = ['#fff'];
@@ -114,7 +163,6 @@ const Layout = ({ pageTitle, children }) => {
         }, 400)
     }
 
-
     async function fetchData() {
 
         if (pageTitle === 'Home Page') {
@@ -123,7 +171,7 @@ const Layout = ({ pageTitle, children }) => {
 
         if (pageTitle === 'My Spotify') {
 
-            consoleText(['my Spotify.', 'click a track!', 'ariana rocks.'], 'text', ['#FFB2C0', '#FFB2C0', '#FFB2C0']);
+            consoleText(['my Spotify.', 'click a track!'], 'text', ['#FFB2C0', '#FFB2C0']);
         }
 
         if (pageTitle === 'About Me') {
@@ -144,14 +192,15 @@ const Layout = ({ pageTitle, children }) => {
 
     }, []);
 
-
-
     return (
 
         <>
             <Container>
-                <nav>
-                    <NavLinks>
+                <Nav className='navigation'>
+                    <Lunch onClick={toggleBurger}>
+                        <Hamburger isOpen={hamburgerOpen} ></Hamburger>
+                    </Lunch>
+                    <NavLinks className='words'>
                         <NavLinkItem>
                             <Link to="/" className="nav-link-text"> HOME</Link>
                         </NavLinkItem>
@@ -165,7 +214,41 @@ const Layout = ({ pageTitle, children }) => {
                             <Link className="nav-link-text" to="/mySpotify">SPOTIFY</Link>
                         </NavLinkItem>
                     </NavLinks>
-                </nav>
+
+
+                    <style jsx>
+                        {
+                            `
+                            @media (max-width:768px)
+                            {
+
+                                .words{
+
+                                    display:inline;
+                                    opacity:${hamburgerOpen ? '100' : '0'};
+                                    position:fixed;
+                                    padding-left: 8px;
+                                    transition: display 1s ease-in;
+                                    margin-top: 150px;
+                                    z-index:10;
+                                    background-color:white;
+                                    width: 115px;
+                                    
+                                }
+
+                                .navigation
+                                {
+                                    justify-content: normal;   
+    
+                                }
+
+                            }
+
+                            `
+                        }
+                    </style>
+
+                </Nav>
                 <Main>
 
 
@@ -191,7 +274,7 @@ const Layout = ({ pageTitle, children }) => {
                                 <br></br><br></br>
                                 by celina alzenor
                                 <br></br>
-                                student, frontend, creative
+                                student
 
                             </Name>
                         </> :
