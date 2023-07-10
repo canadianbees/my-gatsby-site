@@ -11,6 +11,8 @@ const Logos = styled.div`
   display:flex;
   width:300px;
   justify-content: space-between;
+  position: fixed;
+  bottom: 40px;
   
 `;
 const LinkedinLogo = styled(Linkedin)`

@@ -37,30 +37,12 @@ const Heading = styled.div`
     color: #090C08;
     font-size: 2.75rem;
     text-align: center;
-
+   
     @media (max-width:425px){
-        
-        font-size:60px;
+        max-width:350px;
       
       }
 
-    @media (max-width:400px){
-
-        font-size:50px;
-    } 
-
-
-    @media (max-width:375px){
-        
-        font-size:45px;
-      
-      }
-
-    @media (max-width:320px){
-        
-        font-size:40px;
-      
-      }
 `;
 
 
@@ -78,6 +60,9 @@ const NavLinkItem = styled.li`
 
 const Name = styled.p`
     text-align: center;
+
+    position: fixed;
+    bottom:90px;
 
 `;
 
@@ -253,25 +238,13 @@ const Layout = ({ pageTitle, children }) => {
 
 
                     {pageTitle === 'Home Page' ?
-                        <>
-                            <br></br><br></br>
-                            <br></br><br></br>
-                            <br></br><br></br>
-                            <br></br><br></br>
-                            <br></br><br></br>
-                            <Heading>
+                        <>                          
+                            <Heading style={{ marginTop:'200px'}}>
                                 <span id='text'></span>
                                 <div class='console-underscore' id='console'>&#95;
                                 </div>
                             </Heading>
-
                             <Name>
-                                <br></br><br></br>
-                                <br></br><br></br>
-                                <br></br><br></br>
-                                <br></br><br></br>
-                                <br></br><br></br>
-                                <br></br><br></br>
                                 by celina alzenor
                                 <br></br>
                                 student
