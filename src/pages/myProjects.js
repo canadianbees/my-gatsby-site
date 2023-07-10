@@ -19,7 +19,8 @@ const Image = styled.img`
 const ProjectsPage = () => {
   return (
     <Layout pageTitle="Projects">
-      <Image src={download}></Image>
+      <p>this page isnt done yet :p</p>
+      <Image src={download} alt="timmy's dad"></Image>
     </Layout>
   )
 }

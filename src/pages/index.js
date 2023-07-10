@@ -60,10 +60,10 @@ const IndexPage = () => {
   return (
     <Layout pageTitle="Home Page">
       <Logos>
-        <a href='https://linkedin.com/in/celina-alzenor-073b7a237'><LinkedinLogo /></a>
-        <a href='https://ucf.joinhandshake.com/stu/users/26313927'><HandshakeLogo /></a>
-        <a href='https://profile.indeed.com/?hl=en_US&co=US&from=gnav-employer--post-press--jobseeker'><IndeedLogo /></a>
-        <a href='https://github.com/canadianbees'><GithubLogo/></a>
+        <a href='https://linkedin.com/in/celina-alzenor-073b7a237' aria-label='linkedin'><LinkedinLogo /></a>
+        <a href='https://ucf.joinhandshake.com/stu/users/26313927' aria-label='handshake'><HandshakeLogo /></a>
+        <a href='https://profile.indeed.com/?hl=en_US&co=US&from=gnav-employer--post-press--jobseeker' aria-label='indeed'><IndeedLogo /></a>
+        <a href='https://github.com/canadianbees' aria-label='github'><GithubLogo/></a>
       </Logos>
     </Layout>
 

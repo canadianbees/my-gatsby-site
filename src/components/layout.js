@@ -175,7 +175,7 @@ const Layout = ({ pageTitle, children }) => {
 
         fetchData();
 
-    }, []);
+    });
 
     return (
 

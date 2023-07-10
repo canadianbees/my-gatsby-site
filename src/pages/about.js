@@ -282,7 +282,7 @@ const AboutPage = () => {
             <Face3><ReactLogo style={{ color: '#61DBFB' }} /></Face3>
             <Face4><RProject style={{ color: '#165CAA' }} /></Face4>
             <Face5><Javascript style={{ color: '#F0DB4F' }} /></Face5>
-            <Face6><img src={CProg} /></Face6>
+            <Face6><img src={CProg} alt='c language' /></Face6>
           </Spinner>
         </Cube>
 
