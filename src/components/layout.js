@@ -197,7 +197,7 @@ const Layout = ({ pageTitle, children }) => {
                     </NavLinks>
 
 
-                    <style jsx>
+                    <style>
                         {
                             `
                             .nav-link-text {
@@ -265,7 +265,7 @@ const Layout = ({ pageTitle, children }) => {
                             <br></br>                          
                             <Heading>
                                 <span id='text'></span>
-                                <div class='console-underscore' id='console'>&#95;
+                                <div className='console-underscore' id='console'>&#95;
                                 </div>
                             </Heading>
                             <Name>
@@ -277,7 +277,7 @@ const Layout = ({ pageTitle, children }) => {
                         <>
                             <Heading>
                                 <span id='text'></span>
-                                <div class='console-underscore' id='console'>
+                                <div className='console-underscore' id='console'>
                                     &#95;
                                 </div>
                             </Heading>

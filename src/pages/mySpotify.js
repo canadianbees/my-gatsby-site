@@ -38,7 +38,7 @@ const loadAnimation = keyframes`
 `;
 
 const Loading = styled(MusicNoteBeamed)`
- -webkit-animation: 1.25s ease-in-out ${loadAnimation} infinite;
+ animation: 1.25s ease-in-out ${loadAnimation} infinite;
 
  height:100px;
  width:100px;
@@ -83,14 +83,14 @@ const MySpotifyPage = () => {
     const [playerLoaded, setPlayerLoaded] = useState(false);
     const [online, setOnline] = useState(false);
 
+
     async function fetchData() {
         let trackResult = await GetMyTopTracks();
         let artistResult = await GetMyTopArtists();
         let albumResult = await GetMySavedAlbums();
         let listenResult = await GetNowPlaying();
-
-
-        console.log(trackResult)
+        
+        
         //api call returns null that means im offline
         if (listenResult !== null) {
             setOnline(true);
@@ -103,9 +103,24 @@ const MySpotifyPage = () => {
         setLoading(true);
         setPlayerLoaded(true);
     }
-    //
+
+
     useEffect(() => {
         fetchData();
+
+        //update currently listening to every 45 seconds
+        const interval = setInterval(async () =>
+        {
+            let listenResult =  await GetNowPlaying();
+        
+            //api call returns null that means im offline
+            if (listenResult !== null) {
+                setOnline(true);
+            }
+
+            setNowPlaying(listenResult);
+        }, 30000);
+        return () =>clearInterval(interval);
 
     }, []); //! Important
 
