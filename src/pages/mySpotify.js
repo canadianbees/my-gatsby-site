@@ -119,7 +119,7 @@ const MySpotifyPage = () => {
             }
 
             setNowPlaying(listenResult);
-        }, 30000);
+        }, 45000);
         return () =>clearInterval(interval);
 
     }, []); //! Important
