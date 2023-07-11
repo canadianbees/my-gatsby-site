@@ -12,6 +12,7 @@ import AlbumCardDisplay from '../components/savedAlbumsDisplay';
 import NowPlayingDisplay from '../components/nowPlayingDisplay';
 import { MusicNoteBeamed } from '@styled-icons/bootstrap';
 import { keyframes } from 'styled-components';
+import cantFind from '../assets/images/cantFind.jpg'
 
 const Container = styled.div`
     display: grid;
@@ -93,6 +94,13 @@ const MySpotifyPage = () => {
         if (listenResult !== null) {
             setOnline(true);
         }
+
+        if(listenResult.image === null)
+        {
+            listen.image = cantFind;
+        }
+
+
 
         setTracks(trackResult);
         setArtists(artistResult);
