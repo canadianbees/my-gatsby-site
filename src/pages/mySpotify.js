@@ -90,17 +90,11 @@ const MySpotifyPage = () => {
         let listenResult = await GetNowPlaying();
 
 
+        console.log(trackResult)
         //api call returns null that means im offline
         if (listenResult !== null) {
             setOnline(true);
         }
-
-        if(listenResult.image === null)
-        {
-            listenResult.image = cantFind;
-        }
-
-
 
         setTracks(trackResult);
         setArtists(artistResult);
@@ -108,7 +102,6 @@ const MySpotifyPage = () => {
         setNowPlaying(listenResult);
         setLoading(true);
         setPlayerLoaded(true);
-
     }
     //
     useEffect(() => {
@@ -125,9 +118,22 @@ const MySpotifyPage = () => {
                 <p></p>
 
                 {/* if the now playing plater has loaded and im online display it, if not it should display currently offline */}
-                {playerLoaded && online ? <NowPlayingDisplay name={nowPlaying.name} artist={nowPlaying.artist} image={nowPlaying.image} trackUrl={nowPlaying.trackUrl} isPlaying={nowPlaying.isPlaying} loaded={playerLoaded} online={online} >
-                </NowPlayingDisplay> : <NowPlayingDisplay name={null} artist={null} image={null} trackUrl={null} isPlaying={null} loaded={playerLoaded} online={online} >
-                </NowPlayingDisplay>}
+                {playerLoaded && online ?
+
+                    //check if song has an image
+                    nowPlaying.image ?
+
+                        //song has an image
+                        <NowPlayingDisplay name={nowPlaying.name} artist={nowPlaying.artist} image={nowPlaying.image} trackUrl={nowPlaying.trackUrl}
+                            isPlaying={nowPlaying.isPlaying} loaded={playerLoaded} online={online} >
+                        </NowPlayingDisplay>
+                        :
+                        //no image
+                        <NowPlayingDisplay name={nowPlaying.name} artist={nowPlaying.artist} image={cantFind} trackUrl={nowPlaying.trackUrl} isPlaying={nowPlaying.isPlaying} loaded={playerLoaded} online={online} >
+                        </NowPlayingDisplay>
+                    //i'm offline
+                    : <NowPlayingDisplay name={null} artist={null} image={null} trackUrl={null} isPlaying={null} loaded={playerLoaded} online={online} >
+                    </NowPlayingDisplay>}
 
                 <div><br></br><br></br></div>
 
@@ -160,7 +166,7 @@ const MySpotifyPage = () => {
                                         <ArtistCardDisplay name={artist.name} image={artist.img} url={artist.artistUrl} genre={artist.genre}></ArtistCardDisplay>
                                         <br></br>
                                     </div>
-                                    
+
                                 )
                             })
 
