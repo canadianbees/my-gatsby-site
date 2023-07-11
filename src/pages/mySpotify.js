@@ -97,7 +97,7 @@ const MySpotifyPage = () => {
 
         if(listenResult.image === null)
         {
-            listen.image = cantFind;
+            listenResult.image = cantFind;
         }
 
 
