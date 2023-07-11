@@ -1,4 +1,5 @@
 import { getNowPlaying } from "../../lib/spotify";
+import replacement from '../assets/images/cantFind.png'
 export default async function GetNowPlaying(req,res) {
     const response = await getNowPlaying();
 
@@ -21,7 +22,7 @@ export default async function GetNowPlaying(req,res) {
 
     else
     {
-        image=null;
+        image=replacement;
     }
 
    
