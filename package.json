@@ -33,6 +33,7 @@
     "gatsby-legacy-polyfills": "^3.11.0",
     "gatsby-plugin-sass": "^6.11.0",
     "gatsby-plugin-styled-components": "^6.11.0",
+    "gatsby-source-filesystem": "^5.11.0",
     "howler": "^2.2.3",
     "loaders.css": "^0.1.2",
     "os-browserify": "^0.3.0",
