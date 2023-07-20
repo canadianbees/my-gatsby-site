@@ -10,14 +10,17 @@ module.exports = {
     title: `My Gatsby Site`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-styled-components", {
+  plugins: ["gatsby-plugin-styled-components", 
+  {
     resolve: `gatsby-source-filesystem`,
     options: {
       // The unique name for each instance
       name: `project_images`,
       // Path to the directory
-      path: `${__dirname}/src/components/assets/data.json`,
-    }}],
+      path: `${__dirname}/src/components/Portfolio/assets/`,
+    }}
+  
+  ],
   flags: {
     DEV_SSR: true,
   },
