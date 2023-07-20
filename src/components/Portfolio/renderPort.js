@@ -2,7 +2,6 @@ import * as React from "react"
 import styled from 'styled-components'
 import data from './data.json'
 import { useState } from "react"
-import { useRef } from "react"
 import Modal from '../Slideshow/Modal.js'
 
 const ImageContainer = styled.div`
