@@ -6,10 +6,10 @@ import GetMyTopTracks from '../api/top-tracks'
 import GetMyTopArtists from '../api/top-artists'
 import GetMySavedAlbums from '../api/saved-albums';
 import GetNowPlaying from '../api/currently-playing';
-import SongCardDisplay from '../components/topTracksDisplay'
-import ArtistCardDisplay from '../components/topArtistsDisplay';
-import AlbumCardDisplay from '../components/savedAlbumsDisplay';
-import NowPlayingDisplay from '../components/nowPlayingDisplay';
+import SongCardDisplay from '../components/Spotify/topTracksDisplay'
+import ArtistCardDisplay from '../components/Spotify/topArtistsDisplay';
+import AlbumCardDisplay from '../components/Spotify/savedAlbumsDisplay';
+import NowPlayingDisplay from '../components/Spotify/nowPlayingDisplay';
 import { MusicNoteBeamed } from '@styled-icons/bootstrap';
 import { keyframes } from 'styled-components';
 import cantFind from '../assets/images/cantFind.jpg'
@@ -17,10 +17,10 @@ import cantFind from '../assets/images/cantFind.jpg'
 const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 7rem;
+    column-gap: 6.7rem;
     text-align:center;
 
-    @media (max-width:768px){
+    @media (max-width:1100px){
 
          display:flex;
          flex-direction:column;
