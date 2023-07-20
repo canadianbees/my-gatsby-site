@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import Hamburger from "./hamburger";
+import data from "./Facts/facts.json";
 
 
 const Container = styled.div`
@@ -36,17 +37,36 @@ const Heading = styled.div`
     color: #090C08;
     font-size: 2.75rem;
     text-align: center;
+
+    @media (max-width:1000px){
+        max-width:885px;
+        font-size:2.5rem;
+      
+      
+      }
    
     @media (max-width:425px){
-        max-width:350px;
-        font-size:2.5rem;
+        max-width:375px;
+        font-size:2rem;
       
       }
 
 `;
 
 
+const Fact = styled.a`
+text-align:center;
+font-size:.75rem;
+    text-decoration: none;
+    color: #090C08;
 
+    &:hover {
+        color: #FFB2C0;
+        transition: .3s;
+                            
+    }
+
+`;
 const NavLinks = styled.ul`
  
     display: flex;
@@ -71,11 +91,15 @@ const Lunch = styled.div`
 
 `;
 
+ const RNG = (length) => {
+
+    return Math.floor(Math.random() * ((length - 1) - 0 + 1)) + 0;
+}
+
 const Layout = ({ pageTitle, children }) => {
 
     const [hamburgerOpen, setBurger] = useState(false);
-    const [done, setDone] = useState(false);
-
+    const [fact, setFact] = useState({});
 
     const toggleBurger = () => {
 
@@ -88,6 +112,7 @@ const Layout = ({ pageTitle, children }) => {
             setBurger(true);
         }
     };
+
 
     const consoleText = (words, id, colors) => {
 
@@ -145,8 +170,11 @@ const Layout = ({ pageTitle, children }) => {
 
     async function fetchData() {
 
+
         if (pageTitle === 'Home Page') {
             consoleText(['welcome!', 'go ahead and look around.', 'made with React.'], 'text', ['#FFB2C0', '#FFB2C0', '#FFB2C0']);
+            let index = RNG(data.list.length)
+            setFact(data.list[index]);
         }
 
         if (pageTitle === 'My Spotify') {
@@ -159,19 +187,20 @@ const Layout = ({ pageTitle, children }) => {
             consoleText(['who am i?', 'glad you asked.'], 'text', ['#FFB2C0', '#FFB2C0']);
         }
 
-        if (pageTitle === 'Projects') {
+        if (pageTitle === 'Portfolio') {
 
-            consoleText(['My Projects'], 'text', ['#FFB2C0']);
+            consoleText(['my work'], 'text', ['#FFB2C0']);
         }
+
+
 
 
     }
     useEffect(() => {
 
         fetchData();
-        setDone(true)
 
-    },[done]);
+    }, []);
 
     return (
 
@@ -189,10 +218,10 @@ const Layout = ({ pageTitle, children }) => {
                             <Link to="/about" className="nav-link-text">ABOUT</Link>
                         </NavLinkItem>
                         <NavLinkItem>
-                            <Link className="nav-link-text" to="/myProjects">PROJECTS</Link>
+                            <Link className="nav-link-text" to="/mySpotify">SPOTIFY</Link>
                         </NavLinkItem>
                         <NavLinkItem>
-                            <Link className="nav-link-text" to="/mySpotify">SPOTIFY</Link>
+                            <Link className="nav-link-text" to="/Projects">PORTFOLIO</Link>
                         </NavLinkItem>
                     </NavLinks>
 
@@ -203,11 +232,13 @@ const Layout = ({ pageTitle, children }) => {
                             .nav-link-text {
                                 color: #090C08;
                                 text-decoration: none;
+
                             }
                             
                             
                             .nav-link-text:hover {
                                 color: #FFB2C0;
+                                transition: .3s;
                             
                             }
                             
@@ -231,11 +262,10 @@ const Layout = ({ pageTitle, children }) => {
                                     visibility:${hamburgerOpen ? 'visbile' : 'hidden'};
                                     position:fixed;
                                     padding-left: 8px;
-                                    transition: display 1s ease-in;
-                                    margin-top: 150px;
+                                    margin-top: 200px;
                                     z-index:10;
                                     background-color:white;
-                                    width: 115px;
+                                    width: 150px;
                                 }
 
                                 .navigation
@@ -257,17 +287,21 @@ const Layout = ({ pageTitle, children }) => {
                     {pageTitle === 'Home Page' ?
                         <>
                             <br></br>
-                            <br></br>  
-                            <br></br>  
                             <br></br>
-                            <br></br>  
-                            <br></br>  
-                            <br></br>                          
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
                             <Heading>
                                 <span id='text'></span>
                                 <div className='console-underscore' id='console'>&#95;
                                 </div>
                             </Heading>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <Fact href={fact.url} > {fact.fact}</Fact>
                             <Name>
                                 by celina alzenor
                                 <br></br>
@@ -282,7 +316,6 @@ const Layout = ({ pageTitle, children }) => {
                                 </div>
                             </Heading>
                         </>}
-
                     {children}
                 </Main>
             </Container>
