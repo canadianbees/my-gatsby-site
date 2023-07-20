@@ -10,6 +10,7 @@ const SongNameInfo = styled.div`
     justify-content: center;
     width: 90%;
     text-align:left;
+    max-width:420px;
     
 
     span:nth-of-type(1){
@@ -33,7 +34,7 @@ const SongCard = styled.div`
     gap: 10rem;
     display: flex;
     flex-direction: column;
-    font-size: 1.5vw;
+    font-size: 1rem;
     align-self: center;
     padding: 5%;
     transition: background-color 0.5s;

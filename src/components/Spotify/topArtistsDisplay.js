@@ -6,7 +6,7 @@ const ArtistCard = styled.div`
     gap: 10rem;
     display: flex;
     flex-direction: column;
-    font-size: 1.5vw;
+    font-size: 1rem;
     align-self: center;
     padding: 5%;
     transition: background-color 0.5s;
@@ -60,6 +60,7 @@ const ArtistInfo = styled.div`
     align-items: flex-start;
     justify-content: center;
     text-align:left;
+    max-width:420px;
     
 
     span:nth-of-type(1){
@@ -89,7 +90,6 @@ const ArtistInfo = styled.div`
 
 
 const ArtistCardDisplay = ({ name, image, url, genre }) => {
-
     return (
         <ArtistCard>
             <Artist>
@@ -97,7 +97,18 @@ const ArtistCardDisplay = ({ name, image, url, genre }) => {
                     <ArtistImg src={image} alt="" />
                     <ArtistInfo>
                         <span>{name}</span>
-                        <span>{genre}</span>
+                        <> {  
+                        // if there are no genres to display, show a custom message
+                            genre.length === 0 ?
+                                <span>
+                                    {"genre not found :("}
+                                </span> :
+
+                                <span>
+                                    {genre}
+                                </span>}
+                        </>
+
                         <a href={url}>Check this artist out</a>
                     </ArtistInfo>
                 </div>

@@ -12,7 +12,7 @@ const PlayingCard = styled.div`
     width:460px;
     min-height:357px;
     box-shadow:0px 0px 20px 10px #756d5f;
-    border-radius:18px;
+    border-radius:1rem;
     position: relative;
 
     a{
@@ -117,15 +117,12 @@ const Animation = styled.div`
    
 `;
 
-
-
 const loadAnimation = keyframes`
     0% {color: #191414;}
     50% {color: #1DB954;}
     100% {color: #191414;}
 
 `;
-
 
 const Left = styled.div`
  display:flex;
@@ -184,15 +181,12 @@ const PlayingInfo = styled.span`
  
 `;
 
-
 const Offline = styled.span`
     font-size:30px;
     font-weight:600;
     display:block;
     text-align: center;
 `;
-
-
 
 const Loading = styled(MusicNoteBeamed)`
  animation: 1.25s ease-in-out ${loadAnimation} infinite;
@@ -203,8 +197,6 @@ const Loading = styled(MusicNoteBeamed)`
  position:relative;
 
 `;
-
-
 
 const NowPlayingDisplay = ({ name, artist, image, trackUrl, isPlaying, loaded, online }) => {
     const LoadingFormat =

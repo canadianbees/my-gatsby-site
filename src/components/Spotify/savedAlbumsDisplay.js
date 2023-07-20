@@ -6,7 +6,7 @@ const AlbumCard = styled.div`
     gap: 10rem;
     display: flex;
     flex-direction: column;
-    font-size: 1.5vw;
+    font-size: 1rem;
     align-self: center;
     padding: 5%;
     transition: background-color 0.5s;
@@ -61,6 +61,7 @@ const AlbumInfo = styled.div `
     align-items: flex-start;
     justify-content: center;
     text-align:left;
+    max-width:420px;
 
     span:nth-of-type(1){
         font-weight: bold;
