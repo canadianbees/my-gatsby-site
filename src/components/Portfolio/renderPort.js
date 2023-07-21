@@ -4,8 +4,6 @@ import { useState } from "react"
 import Modal from '../Slideshow/Modal.js'
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Fuck from './assets/anthem/anthem_login.png'
-import file from './data.json';
 
 const ImageContainer = styled.div`
     display: flex;
@@ -240,10 +238,7 @@ const View = styled.button`
 const RenderPortfolio = () => {
 
     const sourceData = useStaticQuery(query)
-    console.log(sourceData.allPortfolioJson.nodes[0].portfolio);
-
-
-    const [data, setData] = useState(sourceData.allPortfolioJson.nodes[0].portfolio);
+    const [data] = useState(sourceData.allPortfolioJson.nodes[0].portfolio);
     const [open, setOpen] = useState(false);
     const [modalActive, setModalActive] = useState(
         {
@@ -251,7 +246,6 @@ const RenderPortfolio = () => {
             status: false
 
         });
-
     const handleClick = (project) => {
 
         //if project has a url, open it in a new tab
@@ -268,8 +262,6 @@ const RenderPortfolio = () => {
                 data.map((port, idx) => {
 
                     const cover = getImage(port.src)
-                    console.log("PLUGGING THIS IN")
-                    console.log(port.src)
                     return (
                         <div key={idx}>
                             <ImageBox>
