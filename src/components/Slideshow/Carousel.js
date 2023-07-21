@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ArrowRightSquareFill, ArrowLeftSquareFill } from '@styled-icons/bootstrap';
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 
 const Container = styled.div`
@@ -25,14 +26,11 @@ width:400px;
 
 `;
 
-const Slide = styled.img`
+const Image = styled(GatsbyImage)`
     border-radius: 1rem;
     width: 750px;
     height: 600px;
-
-    display: ${props => props.status === 'show' ? 'block'
-            : 'none'};
-
+   
     user-select: none;
         -moz-user-select: none;
         -khtml-user-select: none;
@@ -52,36 +50,6 @@ const Slide = styled.img`
     width:400px;
     }
 `;
-
-const VideoSlide = styled.video`
-    border-radius: 1rem;
-    width: 750px;
-    height: 600px;
-    
-    object-fit: fill;
-    display: ${props => props.status === 'show' ? 'block'
-            : 'none'};
-
-    user-select: none;
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
-        -o-user-select: none;
-
-        @media (max-width:768px){
-
-width:400px;
-height: 300px;
-}
-
-//large moba
-@media (max-width:425px){
-
-width:400px;
-}
-
-`;
-
 
 const RightArrow = styled(ArrowRightSquareFill)`
 
@@ -169,20 +137,18 @@ const PhotoButton = styled.button`
 
 
     background-color: ${props => props.status === 'active' ? 'white'
-            : 'gray'};
+        : 'gray'};
 
 
 `;
 
-export const Carosuel = (project) => {
+export const Carosuel = (media) => {
     const [slide, setSlide] = useState(0);
-
-    const getFileExtension = (filename) => {
-        return filename.split('.').pop();
-    }
+    const [pics, setData] = useState(media);
+    const size = pics.data.length;
 
     const nextSlide = () => {
-        if (slide === project.data.media.length - 1) {
+        if (slide === size - 1) {
             setSlide(0)
         }
 
@@ -197,7 +163,7 @@ export const Carosuel = (project) => {
     const prevSlide = () => {
 
         if (slide === 0) {
-            setSlide(project.data.media.length - 1)
+            setSlide(size - 1)
         }
 
         else {
@@ -211,27 +177,25 @@ export const Carosuel = (project) => {
             <LeftArrow onClick={prevSlide} />
 
             {
-                project.data.media.map((item, idx) => {
+
+                pics.data.map((image, idx) => {
+
+                    const picture = getImage(image.src)
+
                     return (
 
-                        <>
+                        <div key={idx}>
                             {
 
-                                getFileExtension(item.src) === 'png'
-                                    ?
-                                    <Slide key={idx} src={item.src} alt={item.alt} status={slide === idx ? "show" : "hide"}></Slide>
 
-                                    : <VideoSlide key={idx} alt={item.alt} status={slide === idx ? "show" : "hide"} autoPlay loop muted>
-
-                                        <source src={item.src} type='video/mp4'></source>
-                                    </VideoSlide>
+                                <Image image={picture} alt="" style={{ display: slide === idx ? "block" : "none"}} imgStyle={{ transition: "none" }}/>
 
 
                             }
 
 
 
-                        </>
+                        </div>
                     )
                 })
             }
@@ -240,7 +204,7 @@ export const Carosuel = (project) => {
             <Indicator>
 
                 {
-                    project.data.media.map((_, idx) => {
+                    media.data.map((_, idx) => {
                         return (
 
                             <PhotoButton key={idx} onClick={() => setSlide(idx)} status={slide === idx ? "active" : "inactive"}></PhotoButton>

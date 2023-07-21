@@ -1,60 +1,51 @@
 {
     "portfolio": [
         {
-            "cover": "../assets/paradise/pp_home.png",
+            "src": "./assets/paradise/pp_home.png",
             "title": "Paradise Pages",
             "role": "Front-end",
-            "tools":"HTML, CSS, JavaScript",
+            "tools": "HTML, CSS, JavaScript",
             "url": "//www.4331Paradise.com",
             "description": "Paradise Pages is a personal contacts manager where users can sign up and upload their contacts. This website was made by using a LAMP (Linux, Apache, MySQL, PHP) stack. Features for this website include live searching contacts, adding a contact's information including phone number and email, and deleting contacts. Paradise Pages was a team effort with peers from my software development class, COP4331C, at the University of Central Florida during the Fall 2022 term. Our professor was so impressed with our work, he decided to pay for its domain so he can use it as an example for future semesters.",
-
-
-            "media": [ 
-                
+            "media": [
                 {
-                    "src": "../assets/paradise/pp_home.png",
+                    "src": "./assets/paradise/pp_home.png",
                     "alt": "Login to Paradise Pages page"
                 },
                 {
-                    "src": "../assets/paradise/pp_add_contact_demo_vid.mp4",
+                    "src": "./assets/paradise/pp_home.png",
                     "alt": "Add contact demo video"
-                }
-                ,
+                },
                 {
-                    "src": "../assets/paradise/pp_contacts.png",
+                    "src": "./assets/paradise/pp_contacts.png",
                     "alt": "Paradise Pages contacts page"
-                }
-                ,
+                },
                 {
-                    "src": "../assets/paradise/pp_deletion.png",
+                    "src": "./assets/paradise/pp_deletion.png",
                     "alt": "Paradise Pages deletion feature"
                 }
-
             ]
         },
         {
-            "cover": "../assets/anthem/anthem_login.png",
+            "src": "./assets/anthem/anthem_login.png",
             "title": "Anthem",
             "role": "Front-end",
-            "tools":"JavaScript, React.js, MongoDB, Node.js",
+            "tools": "JavaScript, React.js, MongoDB, Node.js",
             "description": "Anthem was a social media website with built-in Spotify integration. Users were able to sign up for an account and from there, were able to post onto their timeline which would showcase their music taste to their followers. Using the Spotify Web API, the ability to post 30-second snippets of songs were made possible. These snippets were shared to the timeline where a user's followers would be able to play it. Users could attach a caption or a picture to these snippets. If they weren't vibing with any snippets at all, they also had the option to post a simple caption or picture. Profile customization is another feature that users had access to. Users also had the ability to customize their profile through profile pictures and cover pictures. Since Anthem was a music-centric social media website, users were also able to upload their 'Anthem'. Through this feature, users were able to search and upload a song to their profile where profile vistors can click on the song and play it. Anthem was a team effort with peers from my software development class, COP4331C, at the University of Central Florida during the Fall 2022 term.",
-
-
-            "media": [ 
-                
+            "media": [
                 {
-                    "src": "../assets/anthem/spotify_login.png",
+                    
+                    "src": "./assets/anthem/spotify_login.png",
                     "alt": "Login to Spotify page"
                 },
                 {
-                    "src": "../assets/anthem/anthem_login.png",
+                    "src": "./assets/anthem/anthem_login.png",
                     "alt": "Login to Anthem page"
                 },
                 {
-                    "src": "../assets/anthem/login_vid.mp4",
+                    "src": "./assets/anthem/anthem_login.png",
                     "alt": "Login to Anthem video"
                 }
-
             ]
         }
     ]

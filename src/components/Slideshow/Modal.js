@@ -224,6 +224,7 @@ const X = styled(Close)`
 
 
 const Modal = ({ closeModal, portfolio, modalStatus }) => {
+
     return (
         <Background>
             <Container status={modalStatus.status}>
@@ -245,7 +246,7 @@ const Modal = ({ closeModal, portfolio, modalStatus }) => {
                     </Words>
                 </Bio>
                 <Slideshow>
-                    <Carosuel data={portfolio} />
+                    <Carosuel data={portfolio.media} />
                 </Slideshow>
 
             </Container>

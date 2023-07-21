@@ -1,8 +1,11 @@
 import * as React from "react"
 import styled from 'styled-components'
-import data from './data.json'
 import { useState } from "react"
 import Modal from '../Slideshow/Modal.js'
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Fuck from './assets/anthem/anthem_login.png'
+import file from './data.json';
 
 const ImageContainer = styled.div`
     display: flex;
@@ -49,7 +52,7 @@ const Content = styled.div`
     height: 300px;
     border-radius:  0 0 1rem 1rem;
     max-height: 420px;
-    margin-top: -307px;
+    margin-top: -300px;
     z-index: 3;
 
     color:white;
@@ -149,7 +152,7 @@ width:300px;
 
 `;
 
-const Image = styled.img`
+const Image = styled(GatsbyImage)`
 
     height: 420px;
     width: 400px;
@@ -236,6 +239,11 @@ const View = styled.button`
 
 const RenderPortfolio = () => {
 
+    const sourceData = useStaticQuery(query)
+    console.log(sourceData.allPortfolioJson.nodes[0].portfolio);
+
+
+    const [data, setData] = useState(sourceData.allPortfolioJson.nodes[0].portfolio);
     const [open, setOpen] = useState(false);
     const [modalActive, setModalActive] = useState(
         {
@@ -257,11 +265,17 @@ const RenderPortfolio = () => {
         <ImageContainer>
             {
 
-                data.portfolio.map((port, idx) => {
+                data.map((port, idx) => {
+
+                    const cover = getImage(port.src)
+                    console.log("PLUGGING THIS IN")
+                    console.log(port.src)
                     return (
-                        <>
-                            <ImageBox key={idx}>
-                                <Image src={port.cover} alt='portfolio' />
+                        <div key={idx}>
+                            <ImageBox>
+                                <Image image={cover} alt='portfolio'>
+                                </Image>
+
                                 <Content>
                                     <div>
                                         <Title>{port.title}</Title>
@@ -295,7 +309,7 @@ const RenderPortfolio = () => {
                                     : <></>
                                 }
                             </>
-                        </>
+                        </div>
                     )
                 })
 
@@ -308,6 +322,34 @@ const RenderPortfolio = () => {
 
 }
 
-
-
 export default RenderPortfolio
+export const query = graphql`
+query MyQuery {
+    allPortfolioJson {
+      nodes {
+        portfolio {
+          description
+          role
+          title
+          tools
+          url
+          src {
+            childImageSharp {
+              gatsbyImageData(aspectRatio: 1.5, transformOptions: {fit: FILL})
+            }
+          }
+          media {
+            src {
+              childImageSharp {
+                gatsbyImageData(aspectRatio: 1.25, transformOptions: {fit: FILL})
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+`
