@@ -265,7 +265,7 @@ const RenderPortfolio = () => {
                     return (
                         <div key={idx}>
                             <ImageBox>
-                                <Image image={cover} alt='portfolio'>
+                                <Image image={cover} alt='portfolio' imgStyle={{ borderRadius: '1rem'}}>
                                 </Image>
 
                                 <Content>
