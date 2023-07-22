@@ -17,7 +17,7 @@ import cantFind from '../assets/images/cantFind.jpg'
 const Container = styled.div`
     display: grid;
     grid-template-columns: 2fr 2fr 2fr;
-    column-gap: 6.5rem;
+    column-gap: 6.7rem;
     text-align:center;
 
     @media (max-width:1100px){
