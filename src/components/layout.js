@@ -37,8 +37,10 @@ const Heading = styled.div`
     color: #090C08;
     font-size: 2.75rem;
     text-align: center;
-    margin-top:300px;
-    margin-bottom: 150px;
+    margin-top: ${props => props.location === 'home' ? '300px'
+        : ''};
+    margin-bottom: ${props => props.location === 'home' ? '150px'
+        : ''};
 
     @media (max-width:1000px){
         max-width:885px;
@@ -58,16 +60,15 @@ const Heading = styled.div`
         max-width:400px;
         font-size:1.5rem;
         height:88px;
-        margin-bottom: 100px;
-        margin-top:250px;
+        margin-top: ${props => props.location === 'home' ? '250px'
+        : ''};
+    margin-bottom: ${props => props.location === 'home' ? '100px'
+        : ''};
     
       }
 
       @media (max-width:375px){
-        margin-bottom: 100px;
-        margin-top:250px;
         width:282px;
-    
       }
 
 `;
@@ -305,7 +306,7 @@ const Layout = ({ pageTitle, children }) => {
 
                     {pageTitle === 'Home Page' ?
                         <>
-                            <Heading>
+                            <Heading location="home">
                                 <span id='text'></span>
                                 <div className='console-underscore' id='console'>&#95;
                                 </div>
@@ -315,7 +316,7 @@ const Layout = ({ pageTitle, children }) => {
                            
                         </> :
                         <>
-                            <Heading>
+                            <Heading location="notHome">
                                 <span id='text'></span>
                                 <div className='console-underscore' id='console'>
                                     &#95;
