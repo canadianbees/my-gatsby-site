@@ -218,10 +218,10 @@ const Layout = ({ pageTitle, children }) => {
                             <Link to="/about" className="nav-link-text">ABOUT</Link>
                         </NavLinkItem>
                         <NavLinkItem>
-                            <Link className="nav-link-text" to="/mySpotify">SPOTIFY</Link>
+                            <Link className="nav-link-text" to="/Projects">PORTFOLIO</Link>
                         </NavLinkItem>
                         <NavLinkItem>
-                            <Link className="nav-link-text" to="/Projects">PORTFOLIO</Link>
+                            <Link className="nav-link-text" to="/mySpotify">SPOTIFY</Link>
                         </NavLinkItem>
                     </NavLinks>
 

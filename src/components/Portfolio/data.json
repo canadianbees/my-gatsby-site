@@ -5,7 +5,7 @@
             "title": "Paradise Pages",
             "role": "Front-end",
             "tools": "HTML, CSS, JavaScript",
-            "url": "//www.4331Paradise.com",
+            "url": "http://www.4331paradise.com/",
             "description": "Paradise Pages is a personal contacts manager where users can sign up and upload their contacts. This website was made by using a LAMP (Linux, Apache, MySQL, PHP) stack. Features for this website include live searching contacts, adding a contact's information including phone number and email, and deleting contacts. Paradise Pages was a team effort with peers from my software development class, COP4331C, at the University of Central Florida during the Fall 2022 term. Our professor was so impressed with our work, he decided to pay for its domain so he can use it as an example for future semesters.",
             "media": [
                 {
@@ -37,10 +37,6 @@
                 {
                     "src": "./assets/anthem/anthem_login.png",
                     "alt": "Login to Anthem page"
-                },
-                {
-                    "src": "./assets/anthem/anthem_login.png",
-                    "alt": "Login to Anthem video"
                 }
             ]
         }
