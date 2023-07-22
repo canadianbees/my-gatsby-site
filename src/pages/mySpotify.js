@@ -16,8 +16,8 @@ import cantFind from '../assets/images/cantFind.jpg'
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 6.7rem;
+    grid-template-columns: 2fr 2fr 2fr;
+    column-gap: 6.5rem;
     text-align:center;
 
     @media (max-width:1100px){
@@ -48,8 +48,18 @@ const Loading = styled(MusicNoteBeamed)`
 `;
 
 
+const Header = styled.h2`
+    position:sticky;
+    top:0;
+    background-color: #C3B59F;
+    border-radius: .5rem;
+    padding:5px;
+    font-size:1.3em;
+`;
 const TopSongs = styled.div`
     width:100%;
+    height: 100%;
+    
 `;
 
 const TopArtists = styled.div`   
@@ -60,7 +70,6 @@ const TopArtists = styled.div`
 
 const SavedAlbums = styled.div`   
     width:100%;
-
 `;
 
 
@@ -129,7 +138,8 @@ const MySpotifyPage = () => {
 
         return (
             <Layout pageTitle="My Spotify">
-                <p></p>
+                <br></br>
+                <br></br>
 
                 {/* if the now playing plater has loaded and im online display it, if not it should display currently offline */}
                 {nowPlaying && online ?
@@ -149,12 +159,15 @@ const MySpotifyPage = () => {
                     : <NowPlayingDisplay name={null} artist={null} image={null} trackUrl={null} isPlaying={null} loaded={playerLoaded} online={online} >
                     </NowPlayingDisplay>}
 
-                <div><br></br><br></br></div>
+                <div>
+                    <br></br>
+                    <br></br>
+                </div>
 
                 <Container>
 
                     <TopSongs>
-                        <h2>Top Tracks for This Month</h2>
+                        <Header>Top Tracks for This Month</Header>
                         <br></br>
                         {
                             tracks.map((song, id) => {
@@ -171,7 +184,7 @@ const MySpotifyPage = () => {
 
                     </TopSongs>
                     <TopArtists>
-                        <h2>Top Artists for This Month</h2>
+                        <Header>Top Artists for This Month</Header>
                         <br></br>
                         {
                             artists.map((artist, id) => {
@@ -188,7 +201,7 @@ const MySpotifyPage = () => {
                         }
                     </TopArtists>
                     <SavedAlbums>
-                        <h2>Albums I Like</h2>
+                        <Header>Albums I Like</Header>
                         <br></br>
                         {
                             albums.map((album, id) => {

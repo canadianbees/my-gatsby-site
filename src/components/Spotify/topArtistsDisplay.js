@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import React from 'react';
 
 const ArtistCard = styled.div`
-    width: 110%;
     gap: 10rem;
     display: flex;
     flex-direction: column;

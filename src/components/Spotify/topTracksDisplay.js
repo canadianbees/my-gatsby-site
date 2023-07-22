@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React from 'react';
 import { Howl } from "howler";
 
 const SongNameInfo = styled.div`
@@ -29,7 +29,6 @@ const SongNameInfo = styled.div`
         
         color: #090C08;
         text-decoration: none;
-        z-index:0;
     }
 
     a:hover{
@@ -46,8 +45,6 @@ const SongNameInfo = styled.div`
 `;
 
 const SongCard = styled.div`
-    width: 110%;
-    /* gap: 10rem; */
     display: flex;
     flex-direction: column;
     font-size: 1rem;

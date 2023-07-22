@@ -8,7 +8,7 @@ export default async function GetMyTopArtists(req, res) {
 
 
     if (items) {
-        const result = items.slice(0, 10).map((artists) => ({
+        const result = items.slice(0, 15).map((artists) => ({
             name: artists.name,
             artistUrl: artists.uri,
             img: artists.images[0].url,

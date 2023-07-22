@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import React from 'react';
 
 const AlbumCard = styled.div`
-    width: 90%;
     gap: 10rem;
     display: flex;
     flex-direction: column;

@@ -5,7 +5,7 @@ export default async function GetMySavedAlbums (req,res) {
     const { items } = await response.json();
 if(items)
 {
-    const result = items.slice(0, 10).map((catalog) => ({
+    const result = items.slice(0, 15).map((catalog) => ({
         name: catalog.album.name,
         tracks: catalog.album.total_tracks,
         image: catalog.album.images[0].url,

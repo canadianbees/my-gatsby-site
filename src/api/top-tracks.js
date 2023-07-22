@@ -21,7 +21,7 @@ export default async function getMyTopTracks(req, res) {
 
         if (tracksList) {
             //get the first 10 tracks from the filtered list
-            const tracks = tracksList.slice(0, 10).map((track) => ({
+            const tracks = tracksList.slice(0, 15).map((track) => ({
 
                 artist: track.artists.map((_artist) => _artist.name).join(', '),
                 songUrl: track.preview_url,
