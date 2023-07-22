@@ -60,16 +60,69 @@ const TopSongs = styled.div`
     width:100%;
     height: 100%;
     
+    ${Header}
+    {
+        @media (max-width:425px){
+
+            padding-left:10px;
+
+        } 
+
+        @media (max-width:375px){
+
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        
+        @media (max-width:320px){
+
+            padding-left: 45px;
+            padding-right: 42px;
+        }   
+
+    }
+    
 `;
 
 const TopArtists = styled.div`   
 
     width:100%;
 
+    ${Header}
+    {
+        @media (max-width:425px){
+
+            padding-left:10px;
+
+        } 
+
+        @media (max-width:375px){
+
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        
+        @media (max-width:320px){
+
+            padding-left: 45px;
+            padding-right: 42px;
+        }   
+
+    }
+
 `;
 
 const SavedAlbums = styled.div`   
     width:100%;
+
+    ${Header}
+    {
+        @media (max-width:425px){
+
+            padding:10px;
+
+        } 
+    }
 `;
 
 
