@@ -67,7 +67,7 @@ const Heading = styled.div`
     
       }
 
-      @media (max-width:375px){
+      @media (max-width:414px){
         width:282px;
         margin-top: ${props => props.location === 'home' ? '100px'
         : ''};
