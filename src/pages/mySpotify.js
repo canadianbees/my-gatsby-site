@@ -132,7 +132,7 @@ const MySpotifyPage = () => {
                 <p></p>
 
                 {/* if the now playing plater has loaded and im online display it, if not it should display currently offline */}
-                {playerLoaded && online ?
+                {nowPlaying && online ?
 
                     //check if song has an image
                     nowPlaying.image ?
