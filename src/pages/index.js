@@ -7,6 +7,14 @@ import { Indeed } from '@styled-icons/simple-icons';
 import { Github } from '@styled-icons/bootstrap'
 
 
+const Name = styled.p`
+    text-align: center;
+
+    position: fixed;
+    bottom:90px;
+
+`;
+
 const Logos = styled.div`
   display:flex;
   width:300px;
@@ -59,12 +67,17 @@ const GithubLogo = styled(Github)`
 const IndexPage = () => {
   return (
     <Layout pageTitle="Home Page">
-      <Logos>
-        <a href='https://linkedin.com/in/celina-alzenor-073b7a237' aria-label='linkedin'><LinkedinLogo /></a>
-        <a href='https://ucf.joinhandshake.com/stu/users/26313927' aria-label='handshake'><HandshakeLogo /></a>
-        <a href='https://profile.indeed.com/?hl=en_US&co=US&from=gnav-employer--post-press--jobseeker' aria-label='indeed'><IndeedLogo /></a>
-        <a href='https://github.com/canadianbees' aria-label='github'><GithubLogo/></a>
-      </Logos>
+        <Name>
+          by celina alzenor
+          <br></br>
+          student
+        </Name>
+        <Logos>
+          <a href='https://linkedin.com/in/celina-alzenor-073b7a237' aria-label='linkedin'><LinkedinLogo /></a>
+          <a href='https://ucf.joinhandshake.com/stu/users/26313927' aria-label='handshake'><HandshakeLogo /></a>
+          <a href='https://profile.indeed.com/?hl=en_US&co=US&from=gnav-employer--post-press--jobseeker' aria-label='indeed'><IndeedLogo /></a>
+          <a href='https://github.com/canadianbees' aria-label='github'><GithubLogo /></a>
+        </Logos>
     </Layout>
 
   )

@@ -37,18 +37,37 @@ const Heading = styled.div`
     color: #090C08;
     font-size: 2.75rem;
     text-align: center;
+    margin-top:300px;
+    margin-bottom: 150px;
 
     @media (max-width:1000px){
         max-width:885px;
-        font-size:2.5rem;
+        font-size:2.5rem;      
       
-      
+      }
+
+
+      @media (max-width:768px){
+        max-width:700px;
+        font-size:2rem;
+        
+    
       }
    
     @media (max-width:425px){
-        max-width:375px;
-        font-size:2rem;
-      
+        max-width:400px;
+        font-size:1.5rem;
+        height:88px;
+        margin-bottom: 100px;
+        margin-top:250px;
+    
+      }
+
+      @media (max-width:375px){
+        margin-bottom: 100px;
+        margin-top:250px;
+        width:282px;
+    
       }
 
 `;
@@ -66,6 +85,13 @@ font-size:.75rem;
                             
     }
 
+    @media (max-width:425px){
+
+       padding-left:8px;
+       padding-right:8px;
+    
+      }
+
 `;
 const NavLinks = styled.ul`
  
@@ -78,13 +104,6 @@ const NavLinkItem = styled.li`
     padding-right: 2rem;
 `;
 
-const Name = styled.p`
-    text-align: center;
-
-    position: fixed;
-    bottom:90px;
-
-`;
 
 const Lunch = styled.div`
 
@@ -286,27 +305,14 @@ const Layout = ({ pageTitle, children }) => {
 
                     {pageTitle === 'Home Page' ?
                         <>
-                            <br></br>
-                            <br></br>
-                            <br></br>
-                            <br></br>
-                            <br></br>
-                            <br></br>
-                            <br></br>
                             <Heading>
                                 <span id='text'></span>
                                 <div className='console-underscore' id='console'>&#95;
                                 </div>
                             </Heading>
-                            <br></br>
-                            <br></br>
-                            <br></br>
+                     
                             <Fact href={fact.url} > {fact.fact}</Fact>
-                            <Name>
-                                by celina alzenor
-                                <br></br>
-                                student
-                            </Name>
+                           
                         </> :
                         <>
                             <Heading>
