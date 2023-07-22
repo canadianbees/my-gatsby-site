@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { useState } from 'react';
 import { Howl } from "howler";
 
 
@@ -24,7 +24,23 @@ const SongNameInfo = styled.div`
         }
         font-size:20px;
       
-      }
+    }
+
+    a{
+        
+        color: #090C08;
+        text-decoration: none;
+    }
+
+    a:hover{
+        color:  #AF5B6C;
+        transition: color 0.2s;
+    }
+
+    div{
+        width: 100%;
+        flex-direction: column;
+    }
 
 
 `;
@@ -96,38 +112,53 @@ const SongImg = styled.img`
 
 var audio = null;
 
-const SongCardDisplay = ({ name, artist, image, url }) => {
+
+const SongCardDisplay = ({ name, artist, image, song, url }) => {
+
+    const [playing, setPlaying] = useState(false);
+
+
     const soundPlay = () => {
 
-        //check if its already playing, if it is then stop
+        audio = new Howl({
+            src: [song],
+            html5: true,
+        })
+
+        audio.volume(0.3);
+        audio.play();
+        setPlaying(true);
+    }
+
+    const stopPlay = () => {
         if (audio != null) {
 
             audio.stop();
             audio.unload();
             audio = null;
+            setPlaying(false);
         }
 
-        //if not play the song
         else {
-            audio = new Howl({
-                src: [url],
-                html5: true,
-            })
-
-            audio.volume(0.3);
-            audio.play();
+            setPlaying(false);
         }
     }
 
     return (
-        <SongCard onClick={soundPlay}>
+        <SongCard >
             <Song>
                 <div>
                     <SongImg src={image} alt="" />
                     <SongNameInfo>
-                        <span>{name}</span>
-                        <span>{artist}</span>
+                        <div onClick={() => {
+                            playing ? stopPlay() : soundPlay()
+                        }}>
+                            <span>{name}</span>
+                            <span>{artist}</span>
+                        </div>
+                        <a onClick={stopPlay} href={url}>Open this song in Spotify</a>
                     </SongNameInfo>
+
                 </div>
             </Song>
         </SongCard>

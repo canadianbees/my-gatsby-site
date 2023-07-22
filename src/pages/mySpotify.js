@@ -89,8 +89,8 @@ const MySpotifyPage = () => {
         let artistResult = await GetMyTopArtists();
         let albumResult = await GetMySavedAlbums();
         let listenResult = await GetNowPlaying();
-        
-        
+
+
         //api call returns null that means im offline
         if (listenResult !== null) {
             setOnline(true);
@@ -109,10 +109,9 @@ const MySpotifyPage = () => {
         fetchData();
 
         //update currently listening to every 45 seconds
-        const interval = setInterval(async () =>
-        {
-            let listenResult =  await GetNowPlaying();
-        
+        const interval = setInterval(async () => {
+            let listenResult = await GetNowPlaying();
+
             //api call returns null that means im offline
             if (listenResult !== null) {
                 setOnline(true);
@@ -120,7 +119,7 @@ const MySpotifyPage = () => {
 
             setNowPlaying(listenResult);
         }, 45000);
-        return () =>clearInterval(interval);
+        return () => clearInterval(interval);
 
     }, []); //! Important
 
@@ -161,7 +160,7 @@ const MySpotifyPage = () => {
                             tracks.map((song, id) => {
                                 return (
                                     <div key={id}>
-                                        <SongCardDisplay name={song.title} artist={song.artist} image={song.img.url} url={song.songUrl}></SongCardDisplay>
+                                        <SongCardDisplay name={song.title} artist={song.artist} image={song.img.url} song={song.songUrl} url={song.url}></SongCardDisplay>
                                         <br></br>
                                     </div>
                                 )
