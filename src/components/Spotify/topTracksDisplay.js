@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 import { Howl } from "howler";
 
-
 const SongNameInfo = styled.div`
     display: flex;
     flex-direction: column;
@@ -30,6 +29,7 @@ const SongNameInfo = styled.div`
         
         color: #090C08;
         text-decoration: none;
+        z-index:0;
     }
 
     a:hover{
@@ -47,7 +47,7 @@ const SongNameInfo = styled.div`
 
 const SongCard = styled.div`
     width: 110%;
-    gap: 10rem;
+    /* gap: 10rem; */
     display: flex;
     flex-direction: column;
     font-size: 1rem;
@@ -115,53 +115,104 @@ var audio = null;
 
 const SongCardDisplay = ({ name, artist, image, song, url }) => {
 
-    const [playing, setPlaying] = useState(false);
+    const soundManager = (location) => {
 
+        if (location === "card") {
+            //something is playing
+            if (audio != null) {
 
-    const soundPlay = () => {
+                //if user clicks on the song that is already playing
+                if (audio._src[0] === song) {
+                    //if it is currently playing stop it
+                    if (audio.playing()) {
+                        audio.stop();
+                        audio.unload();
+                        audio = null;
 
-        audio = new Howl({
-            src: [song],
-            html5: true,
-        })
+                    }
 
-        audio.volume(0.3);
-        audio.play();
-        setPlaying(true);
-    }
+                    //if the song is clicked on after it is done playing, play the song again
+                    else {
+                        audio.play();
+                    }
 
-    const stopPlay = () => {
-        if (audio != null) {
+                }
 
-            audio.stop();
-            audio.unload();
-            audio = null;
-            setPlaying(false);
+                //if user clicks on a song that is not currently playing, play the song that the user clicked on
+                else {
+                    //stop current audio
+                    audio.stop();
+                    audio.unload();
+                    audio = null;
+
+                    //load new audio in
+                    audio = new Howl({
+                        src: [song],
+                        html5: true,
+                    })
+                    audio.volume(0.3);
+                    audio.play();
+                    // audio.fade(1, 0, 2000);
+
+                }
+
+            }
+
+            //if nothing is playing, play the song the user clicked on
+            //will be the first case always
+            else {
+                audio = new Howl({
+                    src: [song],
+                    html5: true,
+                })
+                audio.volume(0.3);
+                audio.play();
+            }
+
         }
 
         else {
-            setPlaying(false);
+            if (audio != null) {
+
+                console.log("STOPPING song")
+                audio.stop();
+                audio.unload();
+                audio = null;
+
+            }
         }
+
+
+
+    }
+
+    const handleSpotify = (event) =>
+    {
+        event.stopPropagation();
+        soundManager("link")
     }
 
     return (
-        <SongCard >
-            <Song>
-                <div>
-                    <SongImg src={image} alt="" />
-                    <SongNameInfo>
-                        <div onClick={() => {
-                            playing ? stopPlay() : soundPlay()
-                        }}>
+        <>
+
+            <SongCard  onClick={() => {
+                    soundManager("card")
+                }}>
+                <Song>
+                    <div>
+                        <SongImg src={image} alt="" />
+                        <SongNameInfo>
                             <span>{name}</span>
                             <span>{artist}</span>
-                        </div>
-                        <a onClick={stopPlay} href={url}>Open this song in Spotify</a>
-                    </SongNameInfo>
+                            <a onClick={event => handleSpotify(event)}href={url}>Open this song in Spotify</a>
+                        </SongNameInfo>
 
-                </div>
-            </Song>
-        </SongCard>
+                    </div>
+                </Song>
+
+            </SongCard>
+        </>
+
     )
 }
 
