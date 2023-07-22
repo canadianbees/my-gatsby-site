@@ -69,6 +69,10 @@ const Heading = styled.div`
 
       @media (max-width:375px){
         width:282px;
+        margin-top: ${props => props.location === 'home' ? '100px'
+        : ''};
+    margin-bottom: ${props => props.location === 'home' ? '100px'
+        : ''};
       }
 
 `;
