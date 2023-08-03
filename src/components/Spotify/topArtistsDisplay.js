@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 
 const ArtistCard = styled.div`
-    gap: 10rem;
+    gap: 5rem;
     display: flex;
     flex-direction: column;
     font-size: 1rem;
@@ -10,6 +10,7 @@ const ArtistCard = styled.div`
     padding: 5%;
     transition: background-color 0.5s;
     border-radius: 1rem;
+    max-width:100%;
 
     &:hover
     {
@@ -64,7 +65,7 @@ const ArtistInfo = styled.div`
 
     span:nth-of-type(1){
         font-weight: bold;
-        font-size:1.75vw;
+        font-size:1.87vw;
     }
 
     a{

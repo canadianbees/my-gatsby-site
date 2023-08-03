@@ -10,11 +10,12 @@ const SongNameInfo = styled.div`
     width: 90%;
     text-align:left;
     max-width:420px;
+
     
 
     span:nth-of-type(1){
         font-weight: bold;
-        font-size:2vw;
+        font-size:1.87vw;
     }
 
     @media (max-width:768px){

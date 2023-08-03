@@ -17,7 +17,7 @@ import cantFind from '../assets/images/cantFind.jpg'
 const Container = styled.div`
     display: grid;
     grid-template-columns: 2fr 2fr 2fr;
-    column-gap: 6.7rem;
+    column-gap: 7rem;
     text-align:center;
 
     @media (max-width:1100px){
@@ -57,8 +57,7 @@ const Header = styled.h2`
     font-size:1.3em;
 `;
 const TopSongs = styled.div`
-    width:100%;
-    height: 100%;
+    max-width:505px;
     
     ${Header}
     {
@@ -86,10 +85,12 @@ const TopSongs = styled.div`
 
 const TopArtists = styled.div`   
 
-    width:100%;
+    max-width:505px;
 
     ${Header}
     {
+    
+
         @media (max-width:425px){
 
             padding-left:10px;
@@ -113,7 +114,7 @@ const TopArtists = styled.div`
 `;
 
 const SavedAlbums = styled.div`   
-    width:100%;
+    max-width:505px;
 
     ${Header}
     {
