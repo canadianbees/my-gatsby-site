@@ -7,8 +7,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `My Gatsby Site`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Celina Alzenor's Personal Website`,
+    siteUrl: `https://calzenor.gatsbyjs.io/`
   },
   plugins: ["gatsby-plugin-styled-components", `gatsby-plugin-image`, `gatsby-plugin-sharp`, `gatsby-transformer-sharp`,
     {
@@ -24,8 +24,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/components/Portfolio/`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        "icon": "src/assets/images/favicon.png"
+      }
     }
-
   ],
   flags: {
     DEV_SSR: true,
