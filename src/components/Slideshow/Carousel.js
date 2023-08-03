@@ -28,7 +28,7 @@ width:400px;
 
 const Image = styled(GatsbyImage)`
     border-radius: 1rem;
-    width: 750px;
+    width: 700px;
     height: 600px;
    
     user-select: none;
@@ -59,6 +59,7 @@ const RightArrow = styled(ArrowRightSquareFill)`
     right: 0rem;
     cursor: pointer;
     color: gray;
+    opacity:50%;
 
     z-index: 5;
 
@@ -92,6 +93,7 @@ const LeftArrow = styled(ArrowLeftSquareFill)`
     left: 0rem;
     cursor: pointer;
     color: gray;
+    opacity:50%;
 
     z-index: 5;
 
@@ -144,7 +146,7 @@ const PhotoButton = styled.button`
 
 export const Carosuel = (media) => {
     const [slide, setSlide] = useState(0);
-    const [pics, setData] = useState(media);
+    const [pics] = useState(media);
     const size = pics.data.length;
 
     const nextSlide = () => {
