@@ -316,7 +316,7 @@ const Layout = ({ pageTitle, children }) => {
                                 </div>
                             </Heading>
                      
-                            <Fact href={fact.url} > {fact.fact}</Fact>
+                            <Fact href={fact.url} target="_blank"> {fact.fact}</Fact>
                            
                         </> :
                         <>
