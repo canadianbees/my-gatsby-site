@@ -192,6 +192,7 @@ const MySpotifyPage = () => {
 
         return (
             <Layout pageTitle="My Spotify">
+                
                 <br></br>
                 <br></br>
 
@@ -219,7 +220,6 @@ const MySpotifyPage = () => {
                 </div>
 
                 <Container>
-
                     <TopSongs>
                         <Header>Top Tracks for This Month</Header>
                         <br></br>
@@ -232,8 +232,6 @@ const MySpotifyPage = () => {
                                     </div>
                                 )
                             })
-
-
                         }
 
                     </TopSongs>
@@ -250,8 +248,6 @@ const MySpotifyPage = () => {
 
                                 )
                             })
-
-
                         }
                     </TopArtists>
                     <SavedAlbums>
@@ -268,7 +264,6 @@ const MySpotifyPage = () => {
                             })
                         }
                     </SavedAlbums>
-
                 </Container>
             </Layout>
         )
