@@ -33,6 +33,7 @@
     "gatsby-legacy-polyfills": "^3.11.0",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.11.0",
+    "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-sass": "^6.11.0",
     "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-plugin-styled-components": "^6.11.0",

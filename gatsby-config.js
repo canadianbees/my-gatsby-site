@@ -10,8 +10,8 @@ module.exports = {
     title: `Celina Alzenor's Personal Website`,
     siteUrl: `https://calzenor.gatsbyjs.io/`
   },
-  plugins: ["gatsby-plugin-styled-components", `gatsby-plugin-image`, `gatsby-plugin-sharp`, `gatsby-transformer-sharp`,
-    {
+  plugins: ["gatsby-plugin-styled-components", `gatsby-plugin-image`, `gatsby-plugin-sharp`, `gatsby-transformer-sharp`, `gatsby-plugin-netlify`
+    ,{
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
