@@ -292,7 +292,7 @@ const AboutPage = () => {
           </Headers>
           <p>
             I would like to obtain a position as an entry-level software developer or an entry-level data analyst. I am a very fast learner and I'm determined to thrive in any position I am put in.
-            I have an interest in politics and would like to some day work at a civc technology company.
+            I have an interest in politics and would like to some day work at a civic technology company.
           </p>
         </Goal>
 
