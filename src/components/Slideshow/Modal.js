@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Close } from '@styled-icons/material'
 import { Carosuel } from "./Carousel";
+import { FaceSadTear } from "@styled-icons/fa-regular";
 
 const Background = styled.div`
 min-height:100vh;
@@ -19,7 +20,7 @@ align-items: center;
 `;
 const Container = styled.div`
     display: grid; 
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     min-height:700px;
@@ -222,6 +223,22 @@ const X = styled(Close)`
 
 `;
 
+const NoPreview = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    height:100%;
+`;
+
+const SadFace = styled(FaceSadTear)`
+ height:100px;
+ width:100px;
+ 
+
+`;
+
 
 const Modal = ({ closeModal, portfolio, modalStatus }) => {
 
@@ -245,9 +262,14 @@ const Modal = ({ closeModal, portfolio, modalStatus }) => {
                         <p>{portfolio.description}</p>
                     </Words>
                 </Bio>
-                <Slideshow>
+
+                {portfolio.media.length > 0 ?  <Slideshow>
                     <Carosuel data={portfolio.media} />
-                </Slideshow>
+                </Slideshow> :  <NoPreview>
+                <SadFace/>
+                <p>Sorry, there is no slideshow for this project!</p>
+                    </NoPreview>}
+               
 
             </Container>
         </Background>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import PlayingAnimation from './PlayingAnimation';
-import { Spotify } from '@styled-icons/fa-brands';
+import { Spotify } from '@styled-icons/bootstrap';
 import { MusicNoteBeamed } from '@styled-icons/bootstrap';
 import { keyframes } from 'styled-components';
 

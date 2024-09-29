@@ -29,12 +29,17 @@ const SongNameInfo = styled.div`
     a{
         
         color: #090C08;
-        text-decoration: none;
+        text-decoration: none;        
     }
 
     a:hover{
-        color:  #AF5B6C;
+        color:  #1DB954;
         transition: color 0.2s;
+
+        /* span:hover{
+            color:  #AF5B6C;
+            transition: color 0.2s;
+        } */
     }
 
     div{
@@ -109,8 +114,8 @@ const SongImg = styled.img`
 const fadeOut = (audio) => {
     setTimeout(
         function () {
-            audio.fade(0.5, 0.0, 15000);
-        }, 15000
+            audio.fade(0.5, 0.0, 5000);
+        }, 10000
     )
 }
 
@@ -216,7 +221,6 @@ const SongCardDisplay = ({ name, artist, image, song, url }) => {
                             <span>{artist}</span>
                             <a onClick={event => handleSpotify(event)} href={url}>Open this song in Spotify</a>
                         </SongNameInfo>
-
                     </div>
                 </Song>
             </SongCard>

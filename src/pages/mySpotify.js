@@ -171,7 +171,7 @@ const MySpotifyPage = () => {
     useEffect(() => {
         fetchData();
 
-        //update currently listening to every 45 seconds
+        //update currently listening every 45 seconds
         const interval = setInterval(async () => {
             let listenResult = await GetNowPlaying();
 

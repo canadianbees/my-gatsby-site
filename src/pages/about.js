@@ -1,20 +1,19 @@
 import * as React from 'react'
 import Layout from '../components/layout'
 import styled from 'styled-components'
-import { Html5, Python, ReactLogo, RProject } from '@styled-icons/fa-brands';
-import { Javascript } from '@styled-icons/simple-icons';
+import { Html5, Python, ReactLogo } from '@styled-icons/fa-brands';
+import { Javascript, Java } from '@styled-icons/simple-icons';
 import { keyframes } from 'styled-components';
 import CProg from '../assets/images/icons8-c-programming.svg'
 
 const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;;
+    grid-template-rows: 1fr;
 
     text-align:center;
     margin-left:100px;
     margin-right:100px;
-    height:100%;
 
     @media (max-width:1045px)
     {
@@ -22,9 +21,6 @@ const Container = styled.div`
       grid-template-columns: 1fr 1fr;
    
     }
-
-
-    
 `;
 
 const Me = styled.div`
@@ -116,8 +112,6 @@ const Goal = styled.div`
     
   }
     
-
-
   @media (max-width:320px)
   {
     grid-row-start: 2;
@@ -133,11 +127,6 @@ const Goal = styled.div`
         }
    
   }
-
-
-        
- 
-
 `;
 
 const Cube = styled.div`
@@ -147,10 +136,12 @@ const Cube = styled.div`
   grid-column-start: 2;
   grid-row-end: 3;
   grid-column-end: 3;
+  margin-left: auto;
+  margin-right: auto;
 
   overflow:hidden;
-  align-self: center;
-  justify-self: center;
+  /* align-self: center;
+  justify-self: center; */
   position: relative;
 
   @media (max-width:1045px)
@@ -165,8 +156,6 @@ const Cube = styled.div`
  
 
 `;
-
-
 
 const SpinCube = keyframes`
     
@@ -266,9 +255,9 @@ const AboutPage = () => {
             ME
           </Headers>
           <p>
-            Hi there! My name is Celina Alzenor. I'm a computer science student studying at the University of Central Florida with a graduation date of May 2024.
-            I started at UCF in June 2020 and I've learned a lot about different technologies and computer science concepts since then. I am ready to apply what I've learned
-            and am eager to start my professional career in the tech industry.
+            Hi there! My name is Celina Alzenor. I graduated from the University of Central Florida with a degree in Computer Science in May 2024.
+            In addition to my degree in Computer Science, I have minors in International Engineering, Mathematics, and Political Science.
+            Currently, I am an intern at <a href="https://www.trellix.com/">Trellix</a> working on projects that will automate and streamline our development processes.
           </p>
         </Me>
 
@@ -280,13 +269,13 @@ const AboutPage = () => {
             <Face1><Html5 style={{ color: '#f06529' }} /></Face1>
             <Face2><Python style={{ color: '#FFD43B' }} /></Face2>
             <Face3><ReactLogo style={{ color: '#61DBFB' }} /></Face3>
-            <Face4><RProject style={{ color: '#165CAA' }} /></Face4>
+            <Face4><Java style={{ color: '#FFFFFF' }} /></Face4>
             <Face5><Javascript style={{ color: '#F0DB4F' }} /></Face5>
             <Face6><img src={CProg} alt='c language' /></Face6>
           </Spinner>
         </Cube>
-
-        <Goal>
+ 
+        {/* <Goal>
           <Headers>
             MY GOALS
           </Headers>
@@ -294,7 +283,7 @@ const AboutPage = () => {
             I would like to obtain a position as an entry-level software developer or an entry-level data analyst. I am a very fast learner and I'm determined to thrive in any position I am put in.
             I have an interest in politics and would like to some day work at a civic technology company.
           </p>
-        </Goal>
+        </Goal> */}
 
 
       </Container>

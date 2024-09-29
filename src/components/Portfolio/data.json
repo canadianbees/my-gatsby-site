@@ -4,7 +4,7 @@
             "src": "./assets/paradise/pp_home.png",
             "title": "Paradise Pages",
             "role": "Front-end",
-            "tools": "HTML, CSS, JavaScript",
+            "tools": "LAMP Stack",
             "url": "http://www.4331paradise.com/",
             "description": "Paradise Pages is a personal contacts manager where users can sign up and upload their contacts. This website was made by using a LAMP (Linux, Apache, MySQL, PHP) stack. Features for this website include live searching contacts, adding a contact's information including phone number and email, and deleting contacts. Paradise Pages was a team effort with peers from my software development class, COP4331C, at the University of Central Florida during the Fall 2022 term. Our professor was so impressed with our work, he decided to pay for its domain so he can use it as an example for future semesters.",
             "media": [
@@ -26,7 +26,7 @@
             "src": "./assets/anthem/anthem_login.png",
             "title": "Anthem",
             "role": "Front-end",
-            "tools": "JavaScript, React.js, MongoDB, Node.js",
+            "tools": "MERN Stack",
             "description": "Anthem was a social media website with built-in Spotify integration. Users were able to sign up for an account and from there, were able to post onto their timeline which would showcase their music taste to their followers. Using the Spotify Web API, the ability to post 30-second snippets of songs were made possible. These snippets were shared to the timeline where a user's followers would be able to play it. Users could attach a caption or a picture to these snippets. If they weren't vibing with any snippets at all, they also had the option to post a simple caption or picture. Profile customization is another feature that users had access to. Users also had the ability to customize their profile through profile pictures and cover pictures. Since Anthem was a music-centric social media website, users were also able to upload their 'Anthem'. Through this feature, users were able to search and upload a song to their profile where profile vistors can click on the song and play it. Anthem was a team effort with peers from my software development class, COP4331C, at the University of Central Florida during the Fall 2022 term.",
             "media": [
                 {
@@ -57,6 +57,27 @@
                     "src": "./assets/anthem/feed.png",
                     "alt": "feed"
                 }
+            ],
+            "videos": [
+                {
+                    "videoSrcURL": "./assets/anthem/anthemdemovid.webm",
+                    "alt": "Post"
+                },
+                {
+                    "videoSrcURL": "./assets/anthem/spacevid.webm",
+                    "alt": "Post"
+                }
+            ]
+        },
+
+        {
+            "src": "./assets/acr/github_logo.png",
+            "title": "Automated Code Review Bot",
+            "role": "Developer",
+            "tools": "Python, Git, Github Action Workflows",
+            "description": "For my first project at Trellix, I was tasked with creating a bot that conducts code reviews on the Github platform. The bot is triggered when a pull request is opened or updated with a new commit through the use of Github Workflows. The bot is powered by Gemini 1.5 Pro and has a token limit of 1 million; this token limit is ideal as it allows for a large context window. This context window is made up of files in the head and base branch that depend on the changed file(s). This context window is important as the bot is able to detect whether or not a change in the pull request will break the existing code or not. In addition to analyzing the impact of the change, the bot is also able to point out unused variables, assess the quality of comments, and is able to provide suggestions to improve the readability of the code. This project is currently still in development",
+            "media": [
+               
             ],
             "videos": [
                 {
