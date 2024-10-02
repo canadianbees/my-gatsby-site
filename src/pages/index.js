@@ -70,7 +70,7 @@ const IndexPage = () => {
         <Name>
           by celina alzenor
           <br></br>
-          student
+          software engineer
         </Name>
         <Logos>
           <a href='https://linkedin.com/in/celina-alzenor-073b7a237' aria-label='linkedin'><LinkedinLogo /></a>
