@@ -247,7 +247,7 @@ const AboutPage = () => {
             </Face6>
           </Spinner>
         </Cube> */}
-        <Timeline></Timeline>
+        {/* <Timeline></Timeline> */}
       </Container>
     </Layout>
   )
